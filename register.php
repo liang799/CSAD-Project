@@ -8,6 +8,23 @@ $username_err = $password_err = $email_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+	if (empty(trim($_POST["username"]))) {
+	    $error = true;
+	    $username_errr = "Name cannot bbe NULLL";
+	} elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
+		$username_err = "Username can only contain letters, numbers, and underscores.";
+    } else {
+		$stmt = $conn->prepare("SELECT * FROM websitedatabase.accounts WHERE userName=?"); //prepared statements
+		$stmt->bind_param("s", $_POST["username"]);
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		if (!empty($result) && $result->num_rows > 0) {
+			echo "Taken";
+		} else {
+			echo "Not taken";
+		}
+	}
     
 
 }
