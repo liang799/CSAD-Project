@@ -9,8 +9,7 @@ $username_err = $password_err = $email_err = "";
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if (empty(trim($_POST["username"]))) {
-	    $error = true;
-	    $username_errr = "Name cannot bbe NULLL";
+	    $username_err = "username cannot be empty";
 	} elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
 		$username_err = "Username can only contain letters, numbers, and underscores.";
     } else {
@@ -20,11 +19,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$result = $stmt->get_result();
 
 		if (!empty($result) && $result->num_rows > 0) {
-			echo "Taken";
+			$username_err = "Username has been taken";
 		} else {
 			echo "Not taken";
 		}
+		$stmt->close();
 	}
+	if (empty(trim($_POST["email"]))) {
+		$email_err = "email cannot be empty";
+	} elseif (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $_POST["email"])) {
+		$email_err = "Not a valid email";
+	} else {
+
+	}
+
     
 
 }
