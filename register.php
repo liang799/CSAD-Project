@@ -11,20 +11,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if (empty(trim($_POST["username"]))) {
 	    $username_err = "username cannot be empty";
 	} elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
+		$username = $_POST["username"];
 		$username_err = "Username can only contain letters, numbers, and underscores.";
     } else {
 		$stmt = $conn->prepare("SELECT * FROM websitedatabase.accounts WHERE userName=?"); //prepared statements
 		$stmt->bind_param("s", $_POST["username"]);
 		$stmt->execute();
 		$result = $stmt->get_result();
+		$username = $_POST["username"];
 
 		if (!empty($result) && $result->num_rows > 0) {
 			$username_err = "Username has been taken";
-		} else {
-			echo "Not taken";
-		}
+		} 
 		$stmt->close();
 	}
+
+
 	if (empty(trim($_POST["email"]))) {
 		$email_err = "email cannot be empty";
 	} elseif (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $_POST["email"])) {
