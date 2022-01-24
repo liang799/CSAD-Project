@@ -15,8 +15,10 @@ function selectUser($conn, $var) {
 }
 
 function checkPOST($rows, $col, &$var, $postVar, &$errorMsg, $error) {
-	if ($rows[0][$col] == $postVar)
+	if (empty($rows))
+		$errorMsg = $error;
+	elseif ($rows[0][$col] == $postVar)
 		$var = $postVar;
 	else
-		$errorMsg = $error;
+		$errorMsg = "Idk went wrong";
 }
