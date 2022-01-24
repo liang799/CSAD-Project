@@ -1,37 +1,29 @@
 <?php
-// Include config file
 require_once "include/config.php";
+require_once "include/functions.php";
  
-// Define variables and initialize with empty values
 $username = $password = $email = "";
 $username_err = $password_err = $email_err = "";
  
-// Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-	// Username textfield
+	/* ------ Username textfield ------ */
 	if (empty(trim($_POST["username"]))) {
-	    $username_err = "username cannot be empty";
+	    $username_err = "Username cannot be empty";
 	} elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
 		$username = $_POST["username"];
 		$username_err = "Username can only contain letters, numbers, and underscores.";
     } else {
-		//prepared statement is better than "WHERE userName=$var" (unprepared statement)
-		$stmt = $conn->prepare("SELECT * FROM websitedatabase.accounts WHERE userName=?"); 
-		$stmt->bind_param("s", $_POST["username"]);
-		$stmt->execute();
-		$result = $stmt->get_result();
+		$result = selectUser($conn, $_POST["username"]);
 		$username = $_POST["username"];
-
 		if (!empty($result) && $result->num_rows > 0) {
 			$username_err = "Username has been taken";
 		} 
-		$stmt->close();
 	}
 
-	// Email textfield
+	/* --------- Email textfield --------- */
 	if (empty(trim($_POST["email"]))) {
-		$email_err = "email cannot be empty";
+		$email_err = "Email cannot be empty";
 	} elseif (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $_POST["email"])) {
 		$email_err = "Not a valid email";
 		$email = $_POST["email"];
@@ -39,7 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$email = $_POST["email"];
 	}
 
-	// Password textfield
+	/* --------- Password textfield --------- */
 	if (empty($_POST["password"])) {
 		$password_err = "Password cannot be empty";
     } elseif(strlen($_POST["password"]) < 6){
@@ -59,9 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		/* Prepared statement, stage 2: bind and execute */
 		$stmt->bind_param("sss", $username, $email, $encrypted); 
 		$stmt->execute(); 
-		echo "inserted $username $email $encrypted";
 		$stmt->close();
-
 	}
 }
 ?>

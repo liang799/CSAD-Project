@@ -3,7 +3,7 @@
 require_once "include/config.php";
 require_once "include/functions.php";
  
-$username = $email = "";
+$username = $email = $password = "";
 $username_err = $password_err = $email_err = "";
 $result = $row = [];
  
