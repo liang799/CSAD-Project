@@ -20,5 +20,5 @@ function checkPOST($rows, $col, &$var, $postVar, &$errorMsg, $error) {
 	elseif ($rows[0][$col] == $postVar)
 		$var = $postVar;
 	else
-		$errorMsg = "Idk went wrong";
+		$errorMsg = $error;
 }
