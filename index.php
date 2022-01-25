@@ -17,6 +17,15 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <style>
+.btn-sm {
+  padding: 1.25rem 2.25rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10rem;
+}
+</style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -29,7 +38,8 @@
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Sign Up</a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-primary btn-sm" href="#contact">Log In</a></li>
                     </ul>
                 </div>
             </div>
