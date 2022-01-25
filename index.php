@@ -19,12 +19,15 @@
         <link href="css/styles.css" rel="stylesheet" />
         <style>
 .btn-sm {
-  padding: 1.25rem 2.25rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  border: none;
-  border-radius: 10rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 10rem;
 }
+
+#mainNav .navbar-nav .nav-item:last-child .nav-link {
+    padding:0px 16px;
+  }
 </style>
     </head>
     <body id="page-top">
@@ -35,9 +38,7 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                        
                         <li class="nav-item"><a class="nav-link" href="register.php">Sign Up</a></li>
                         <li class="nav-item"><a class="nav-link btn btn-primary btn-sm" href="login.php">Log In</a></li>
                     </ul>
