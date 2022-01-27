@@ -53,6 +53,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$stmt->bind_param("sss", $username, $email, $encrypted); 
 		$stmt->execute(); 
 		$stmt->close();
+
+		echo "Account created...";
 	}
 }
 ?>
