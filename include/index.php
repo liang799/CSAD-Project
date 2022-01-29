@@ -6,6 +6,7 @@ require_once "functions.php";
 $first = $last = $email = $msg = "";
 $first_err = $last_err = $email_err = $msg_err = "";
 $result = $row = [];
+$today = date('Y-m-d');
  
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -42,8 +43,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	}
 
 	// Check for no error messages
-	if ( empty($username_err) && empty($email_err) && empty($password_err) && empty($msg_err)) {
-		var_dump($row);
+	if ( empty($first_err) && empty($last_err) && empty($email_err) && empty($msg_err)) {
+		/* Prepared statement, stage 1: prepare */
+		$stmt = $conn->prepare("INSERT INTO userquery(firstName, lastName, email, msg, msgDate) VALUES (?, ?, ?, ?, ?)");
+
+		/* Prepared statement, stage 2: bind and execute */
+		$stmt->bind_param("sssss", $first, $last, $email, $msg, $today);
+		$stmt->execute(); 
+		$stmt->close();
+
+		/* TODO alert user that query is successful */
 	}
 }
 ?>
