@@ -1,3 +1,7 @@
+<?php
+	require_once "include/index.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -191,31 +195,35 @@
                 </div>
                 <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
                     <div class="col-lg-6">
-                        <form id="contactForm">
+                        <!--<form id="contactForm">-->
+						<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                             <!-- first name input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text"/>
-                                <label for="name">First name</label>
-							<div class="invalid-feedback d-block" >A name is required.</div>
+								<input type="text" name="first" class="form-control <?php echo (!empty($first_err)) ? 'is-invalid' : ''; ?>" 
+									   value="<?php echo $first; ?>">
+                                <label for="first">First name</label>
+							<div class="invalid-feedback" ><?php echo $first_err ?></div>
                             </div>
                             <!-- last name input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text"/>
-                                <label for="name">Last name</label>
-							<div class="invalid-feedback d-block" >A name is required.</div>
+								<input type="text" name="last" class="form-control <?php echo (!empty($last_err)) ? 'is-invalid' : ''; ?>" 
+									   value="<?php echo $last; ?>">
+                                <label for="last">Last name</label>
+							<div class="invalid-feedback" ><?php echo $last_err ?></div>
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email"  />
+								<input type="text" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" 
+									   value="<?php echo $email; ?>">
                                 <label for="email">Email address</label>
-                                <div class="invalid-feedback d-block" >An email is required.</div>
-                                <div class="invalid-feedback d-block" >Email is not valid.</div>
+                                <div class="invalid-feedback" ><?php echo $email_err ?></div>
                             </div>
                             <!-- Message input-->
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" style="height: 10rem" ></textarea>
+                                <textarea name="message" type="text" style="height: 10rem" 
+										  class="form-control <?php echo (!empty($msg_err)) ? 'is-invalid' : ''; ?>"> <?php echo $msg; ?></textarea>
                                 <label for="message">Message</label>
-                                <div class="invalid-feedback d-block" >A message is required.</div>
+                                <div class="invalid-feedback" ><?php echo $msg_err ?></div>
                             </div>
                             <!-- Submit success message-->
                             <!---->
