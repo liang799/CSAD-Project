@@ -46,20 +46,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	/* --------- Password textfield --------- */
 	if (empty($_POST["password"])) {
 		$password_err = "Password cannot be empty";
-    } elseif(strlen($_POST["password"]) < 6){
-        $password_err = "Password too short";
-    } elseif(strlen($_POST["password"]) > 30){
-        $password_err = "Stop spamming";
+	} elseif(strlen($_POST["password"]) < 6){
+		$password_err = "Password too short";
+	} elseif(strlen($_POST["password"]) > 30){
+		$password_err = "Stop spamming";
 	} else {
 		$password = $_POST["password"];
-		$encrypted = $row[0]['userPassword'];
-		if (!password_verify($password, $encrypted)) 
-			$password_err = "Wrong password";
+		if (empty($username_err)) {
+			$encrypted = $row[0]['userPassword'];
+			if (!password_verify($password, $encrypted)) 
+				$password_err = "Wrong password";
+		} else {
+			$password_err = "Nice try hacker";
+		}
 	}
 
 	// Check for no error messages
 	if ( empty($username_err) && empty($email_err) && empty($password_err) ) {
-		var_dump($row);
+		$auth = true;
+
+		setcookie ("username", $username, strtotime('+30 days'));
+		setcookie ("password", $encrypted, strtotime('+30 days'));
+		setcookie ("auth", $auth, strtotime('+30 days'));
+		header("location: home.php");
+		die();
 	}
 }
 ?>
