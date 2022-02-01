@@ -5,6 +5,7 @@ require_once "functions.php";
  
 $username = $password = $email = "";
 $username_err = $password_err = $email_err = "";
+$today = date('Y-m-d');
  
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -47,12 +48,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	// Check for no error messages
 	if (empty($username_err) && empty($email_err) && empty($password_err)) {
 		/* Prepared statement, stage 1: prepare */
-		$stmt = $conn->prepare("INSERT INTO accounts(userName, userEmail, userPassword) VALUES (?, ?, ?)");
+		$stmt = $conn->prepare("INSERT INTO accounts(userName, userEmail, userPassword, userCreateDate) VALUES (?, ?, ?, ?)");
 
 		/* Prepared statement, stage 2: bind and execute */
-		$stmt->bind_param("sss", $username, $email, $encrypted); 
+		$stmt->bind_param("ssss", $username, $email, $encrypted, $today); 
 		$stmt->execute(); 
 		$stmt->close();
+
+		alert("green", "User successful created");
 	}
 }
 ?>

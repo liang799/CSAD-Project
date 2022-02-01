@@ -1,3 +1,7 @@
+<?php
+	require_once "include/index.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,17 +22,17 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <style>
-.btn-sm {
-    font-size: 0.85rem;
-    font-weight: 700;
-    border: none;
-    border-radius: 10rem;
-}
+			.btn-sm {
+				font-size: 0.85rem;
+				font-weight: 700;
+				border: none;
+				border-radius: 10rem;
+			}
 
-#mainNav .navbar-nav .nav-item:last-child .nav-link {
-    padding:0px 16px;
-  }
-</style>
+			#mainNav .navbar-nav .nav-item:last-child .nav-link {
+				padding:0px 16px;
+			  }
+		</style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -166,8 +170,74 @@
                 <a class="btn btn-light btn-xl" href="https://startbootstrap.com/theme/creative/">Download Now!</a>
             </div>
         </section>
-        <!-- Contact-->
         
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6 text-center">
+                        <h2 class="mt-0">Let's Get In Touch!</h2>
+                        <hr class="divider" />
+                        <p class="text-muted mb-5">Every message is perused by Michael Scott and replied within a day.</p>
+                    </div>
+                </div>
+                <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+                    <div class="col-lg-6">
+                        <!--<form id="contactForm">-->
+						<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                            <!-- first name input-->
+                            <div class="form-floating mb-3">
+								<input type="text" name="first" class="form-control <?php echo (!empty($first_err)) ? 'is-invalid' : ''; ?>" 
+									   value="<?php echo $first; ?>">
+                                <label for="first">First name</label>
+							<div class="invalid-feedback" ><?php echo $first_err ?></div>
+                            </div>
+                            <!-- last name input-->
+                            <div class="form-floating mb-3">
+								<input type="text" name="last" class="form-control <?php echo (!empty($last_err)) ? 'is-invalid' : ''; ?>" 
+									   value="<?php echo $last; ?>">
+                                <label for="last">Last name</label>
+							<div class="invalid-feedback" ><?php echo $last_err ?></div>
+                            </div>
+                            <!-- Email address input-->
+                            <div class="form-floating mb-3">
+								<input type="text" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" 
+									   value="<?php echo $email; ?>">
+                                <label for="email">Email address</label>
+                                <div class="invalid-feedback" ><?php echo $email_err ?></div>
+                            </div>
+                            <!-- Message input-->
+                            <div class="form-floating mb-3">
+                                <textarea name="message" type="text" style="height: 10rem" 
+										  class="form-control <?php echo (!empty($msg_err)) ? 'is-invalid' : ''; ?>"> <?php echo $msg; ?></textarea>
+                                <label for="message">Message</label>
+                                <div class="invalid-feedback" ><?php echo $msg_err ?></div>
+                            </div>
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">Form submission successful!</div>
+                                    To activate this form, sign up at
+                                    <br />
+                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                </div>
+                            </div>
+                            <!-- Submit error message-->
+                            <!---->
+                            <!-- This is what your users will see when there is-->
+                            <!-- an error submitting the form-->
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                            <!-- Submit Button-->
+                            <div class="d-grid"><button class="btn btn-primary btn-xl" id="submitButton" type="submit">Submit</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Footer-->
         <footer class="bg-light py-5">
             <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2021 - Company Name</div></div>
