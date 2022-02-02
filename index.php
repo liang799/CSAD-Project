@@ -129,8 +129,8 @@
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg" title="Joseph">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/jhin.jpg" title="Joseph">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/jhin.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">P2032120</div>
                                 <div class="project-name">Joseph Loh</div>
@@ -139,8 +139,8 @@
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/download.jpg" title="Tian Pok">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/download.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/hitman.jpg" title="Tian Pok">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/hitman.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">P2032203</div>
                                 <div class="project-name">Neoh Tian Pok</div>
