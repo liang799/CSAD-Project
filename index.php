@@ -70,7 +70,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand" href="#page-top">TREE.com</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
@@ -88,12 +88,16 @@
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">Your Favorite Place for Free Bootstrap Themes</h1>
+                        <h1 class="text-white font-weight-bold">TREE Revitalizes Earth's Environment</h1>
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-5">Start Bootstrap can help you build better websites using the Bootstrap framework! Just download a theme and start customizing, no strings attached!</p>
-                        <a class="btn btn-primary btn-xl" href="register.php">Register Here</a>
+                        <p class="text-white-75 mb-5">
+							TREE is a non-profit organisation that is committed to
+							making a world a better place by gathering volunteers to plant more trees
+							and raising awareness of deforestation
+						</p>
+                        <a class="btn btn-primary btn-xl" href="register.php">Join Now</a>
                     </div>
                 </div>
             </div>
@@ -105,12 +109,18 @@
                     <div class="col-lg-8 text-center">
                         <h2 class="text-white mt-0">About Us!</h2>
                         <hr class="divider divider-light" />
-                        <p class="text-white-75 mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our open source, free to download, and easy to use themes! No strings attached!</p>
+                        <p class="text-white-75 mb-4">
+							TREE was founded on February 2022 not in a Garage, but at an institution called
+							Singapore Polytechnic. As such, it is currently headquartered in Singapore Polytechnic.
+							We are committed to plant more trees as the deforestation rate is currently at 
+							10 million hectares per year, which is very alarming. We also wish to spread awareness about
+							the consequences of deforestation. We are currently actively looking for members.
+						</p>
                        
                     </div> 
                     <div class="row gx-4 gx-lg-5 justify-content-center">
                         <div class="col-lg-6">
-                            <iframe width="600" height="450" src="https://www.youtube.com/embed/F2JJ4N2uXuc"></iframe>
+                            <iframe width="600" height="450" src="https://www.youtube.com/embed/BN9qnvRpTos"></iframe>
                         </div>
                         <div class="col-lg-6">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.29856015750988!2d103.77903855730713!3d1.3090930241409915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf15437f759d83d9d!2zMcKwMTgnMzMuMSJOIDEwM8KwNDYnNDQuNSJF!5e0!3m2!1sen!2ssg!4v1643702434856!5m2!1sen!2ssg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -205,7 +215,7 @@
                 <script src="paypal.js"></script>
             </div-->
             <div class="container px-4 px-lg-5 text-center">
-            <h2 class="mb-4">Subscribe To Help Us Out!</h2>
+            <h2 class="mb-4">Become an Honorary Member!</h2>
             <div id="paypal-button-container-P-7YF52428BY641674SMIEMUWI" ></div>
             <script src="https://www.paypal.com/sdk/js?client-id=AebQTHYqSrLkzSBiQeRGNDnx5jxbhSpRGU5-4Ekvi_QLRErQZhD9hezg_MZdMYOoyBJOgo_lpT-wJLt1&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
             <script>
@@ -238,7 +248,7 @@
                     <div class="col-lg-8 col-xl-6 text-center">
                         <h2 class="mt-0">Let's Get In Touch!</h2>
                         <hr class="divider" />
-                        <p class="text-muted mb-5">Every message is perused by Michael Scott and replied within a day.</p>
+                        <p class="text-muted mb-5">Every message is perused by Ranson and replied within a day.</p>
                     </div>
                 </div>
                 <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
@@ -298,7 +308,7 @@
 				  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-				  <form action="register.php"]); ?>" method="post">
+				  <form action="register.php" method="post">
 					<div class="mb-3 form-group">
 						<label>Username</label>
 						<input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
@@ -355,7 +365,7 @@
 
         <!-- Footer-->
         <footer class="bg-light py-5">
-            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2021 - Company Name</div></div>
+            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - TREE.com</div></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
