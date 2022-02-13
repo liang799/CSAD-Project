@@ -2,6 +2,14 @@
 
 require_once "config.php";
 require_once "functions.php";
+
+$row = [];
+$username_err = $password_err = "";
+
+if (!empty($_COOKIE['err_pass']) or !empty($_COOKIE['err_user'])) {
+	$password_err = $_COOKIE['err_pass'];
+	$username_err = $_COOKIE['err_user'];
+}
  
 $first = $last = $email = $msg = "";
 $first_err = $last_err = $email_err = $msg_err = "";
@@ -52,8 +60,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$stmt->execute(); 
 		$stmt->close();
 		echo "<script> Message successfully sent! </script>";
-	} else {
-		echo "<script> alert('Invalid Form Input'); </script>";
 	}
 }
 ?>
