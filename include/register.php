@@ -23,16 +23,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		} 
 	}
 
-	/* --------- Email textfield --------- */
-	if (empty(trim($_POST["email"]))) {
-		$email_err = "Email cannot be empty";
-	} elseif (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $_POST["email"])) {
-		$email_err = "Not a valid email";
-		$email = $_POST["email"];
-	} else {
-		$email = $_POST["email"];
-	}
-
 	/* --------- Password textfield --------- */
 	if (empty($_POST["password"])) {
 		$password_err = "Password cannot be empty";
@@ -55,7 +45,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$stmt->execute(); 
 		$stmt->close();
 
-		alert("green", "User successful created");
+		//alert("green", "User successful created");
+	} else {
+		setcookie ("err_pass", $password_err, strtotime('+1 days'));
+		setcookie ("err_user", $username_err, strtotime('+1 days'));
 	}
+		header("location: ../index.php");
 }
 ?>

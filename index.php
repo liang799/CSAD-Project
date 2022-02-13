@@ -22,6 +22,18 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <style>
+			.bg-dark {
+				background-color: black !important;
+			}
+			header.masthead {
+			  padding-top: 10rem;
+			  padding-bottom: calc(10rem - 4.5rem);
+			  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("assets/img/bg.jpg");
+			  background-position: center;
+			  background-repeat: no-repeat;
+			  background-attachment: scroll;
+			  background-size: cover;
+			}
 			.btn-sm {
 				font-size: 0.85rem;
 				font-weight: 700;
@@ -31,13 +43,30 @@
 
 			#mainNav .navbar-nav .nav-item:last-child .nav-link {
 				padding:0px 16px;
-			  }
-                          .paypal-button-text{
-                              color:white!important;
-                          }
+			}
+			.paypal-button-text{
+				color:white!important;
+			}
+			<?php 
+				if (!$contact_success) {
+					echo '
+					#submitSuccessMessage {
+						visibility: hidden;
+					}
+					';
+				} else {
+					echo '
+					#submitButton {
+						visibility: hidden;
+					}
+					';
+				}
+			?>
 		</style>
     </head>
     <body id="page-top">
+		<script>
+		</script>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
@@ -214,7 +243,7 @@
                 </div>
                 <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
                     <div class="col-lg-6">
-						<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+						<form action="#contact" method="post"> <!--- modern html don't need to self --->
                             <!-- first name input-->
                             <div class="form-floating mb-3">
 								<input type="text" name="first" class="form-control <?php echo (!empty($first_err)) ? 'is-invalid' : ''; ?>" 
@@ -247,19 +276,11 @@
                             <!---->
                             <!-- This is what your users will see when the form-->
                             <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
+                            <div id="submitSuccessMessage">
                                 <div class="text-center mb-3">
                                     <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                                 </div>
                             </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                             <!-- Submit Button-->
                             <div class="d-grid"><button class="btn btn-primary btn-xl" id="submitButton" type="submit">Submit</button></div>
                         </form>
@@ -277,7 +298,7 @@
 				  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-				  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+				  <form action="register.php"]); ?>" method="post">
 					<div class="mb-3 form-group">
 						<label>Username</label>
 						<input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
@@ -307,7 +328,11 @@
 				  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
+<<<<<<< HEAD
 				  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method=post">
+=======
+				  <form action="include/login.php" method="post">
+>>>>>>> 36d4c60a3e088787b7b309724412a1a66b340926
 					<div class="mb-3 form-group">
 						<label>Username</label>
 						<input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
@@ -338,10 +363,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>

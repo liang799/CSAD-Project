@@ -27,22 +27,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		}
 	}
 
-	/* --------- Email textfield --------- */
-	if (empty(trim($_POST["email"]))) {
-		$email_err = "Email cannot be empty";
-	} else {
-		$email = $_POST["email"];
-
-		if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $_POST["email"])) {
-			$email_err = "Not a valid email";
-		} else {
-			if (!empty($result) && $result->num_rows > 0)
-				checkPOST($row, "userEmail", $email, $_POST["email"], $email_err, "Email not found");
-			else
-				$email_err = "Please enter your username";
-		}
-	}
-
 	/* --------- Password textfield --------- */
 	if (empty($_POST["password"])) {
 		$password_err = "Password cannot be empty";
@@ -68,8 +52,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		setcookie ("username", $username, strtotime('+30 days'));
 		setcookie ("password", $encrypted, strtotime('+30 days'));
 		setcookie ("auth", $auth, strtotime('+30 days'));
-		header("location: home.php");
+		header("location: ../home.php");
 		die();
+	} else {
+		setcookie ("err_pass", $password_err, strtotime('+1 days'));
+		setcookie ("err_user", $username_err, strtotime('+1 days'));
+		header("location: ../index.php");
 	}
 }
 ?>
