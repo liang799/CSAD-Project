@@ -22,6 +22,15 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <style>
+			header.masthead {
+			  padding-top: 10rem;
+			  padding-bottom: calc(10rem - 4.5rem);
+			  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("assets/img/bg.jpg");
+			  background-position: center;
+			  background-repeat: no-repeat;
+			  background-attachment: scroll;
+			  background-size: cover;
+			}
 			.btn-sm {
 				font-size: 0.85rem;
 				font-weight: 700;
