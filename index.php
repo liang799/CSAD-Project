@@ -32,6 +32,9 @@
 			#mainNav .navbar-nav .nav-item:last-child .nav-link {
 				padding:0px 16px;
 			  }
+                          .paypal-button-text{
+                              color:white!important;
+                          }
 		</style>
                 <script>var exampleModal = document.getElementById('exampleModal')
                     exampleModal.addEventListener('show.bs.modal', function (event) {
@@ -181,10 +184,38 @@
         </div>
         <!-- Call to action-->
         <section class="page-section bg-dark text-white">
+            <!--Paypal>
+            <div class="container p-3 my-3 bg-warning text-black text-center" style="width:360px">
+                <h1 id="mypaypalid" >SUPPORT US</h1>
+                <div class="d-flex justify-content-center" id="paypal-payment-button" style="margin-bottom: 25px"></div>
+                <script src="https://www.paypal.com/sdk/js?client-id=AQZp3bCBCRUeJ5HSCLmNDZaADbrY8jrzOkFBF44Cmh0fQ6U7Ec3LTVxLLvgL7PObsAgSLkJTNmKvNxb-&disable-funding=credit,card"></script>
+                <script src="paypal.js"></script>
+            </div-->
             <div class="container px-4 px-lg-5 text-center">
-                <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-                <a class="btn btn-light btn-xl" href="https://startbootstrap.com/theme/creative/">Download Now!</a>
-            </div>
+            <h2 class="mb-4">Subscribe To Help Us Out!</h2>
+            <div id="paypal-button-container-P-7YF52428BY641674SMIEMUWI" ></div>
+            <script src="https://www.paypal.com/sdk/js?client-id=AebQTHYqSrLkzSBiQeRGNDnx5jxbhSpRGU5-4Ekvi_QLRErQZhD9hezg_MZdMYOoyBJOgo_lpT-wJLt1&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+            <script>
+              paypal.Buttons({
+                  style: {
+                      shape: 'pill',
+                      color: 'gold',
+                      layout: 'horizontal',
+                      label: 'subscribe'
+                  },
+                  createSubscription: function(data, actions) {
+                    return actions.subscription.create({
+                      /* Creates the subscription */
+                      plan_id: 'P-7YF52428BY641674SMIEMUWI'
+                    });
+                  },
+                  onApprove: function(data, actions) {
+                    alert(data.subscriptionID); // You can add optional success message for the subscriber here
+                  }
+              }).render('#paypal-button-container-P-7YF52428BY641674SMIEMUWI'); // Renders the PayPal button
+            </script>
+            </div> 
+            
         </section>
         
         <!-- Contact-->
