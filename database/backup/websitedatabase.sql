@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 13, 2022 at 03:08 AM
+-- Generation Time: Feb 13, 2022 at 01:47 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -37,14 +37,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `userPicture` longblob,
   `userCreateDate` date NOT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `accounts`
---
-
-INSERT INTO `accounts` (`userid`, `userName`, `userEmail`, `userPassword`, `userBio`, `userPicture`, `userCreateDate`) VALUES
-(5, 'testes', 'testes123@gay.com', 'aaaa', 'hi', NULL, '2022-02-13');
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -54,23 +47,13 @@ INSERT INTO `accounts` (`userid`, `userName`, `userEmail`, `userPassword`, `user
 
 DROP TABLE IF EXISTS `forum`;
 CREATE TABLE IF NOT EXISTS `forum` (
-  `post_id` int(11) NOT NULL AUTO_INCREMENT,
-  `topic_id` int(11) NOT NULL,
+  `authorid` int(11) NOT NULL AUTO_INCREMENT,
+  `topic` text NOT NULL,
   `title` text NOT NULL,
-  `userid` int(11) NOT NULL,
+  `author` text NOT NULL,
   `content` text NOT NULL,
-  PRIMARY KEY (`post_id`),
-  KEY `topic_id` (`topic_id`),
-  KEY `userid` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `forum`
---
-
-INSERT INTO `forum` (`post_id`, `topic_id`, `title`, `userid`, `content`) VALUES
-(1, 2, 'Hi dis slacker abit cringg', 5, 'Anyone who work wif him can relate hah dunnid explain'),
-(2, 1, 'Funny', 5, 'Veg for dayz');
+  PRIMARY KEY (`authorid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -80,18 +63,10 @@ INSERT INTO `forum` (`post_id`, `topic_id`, `title`, `userid`, `content`) VALUES
 
 DROP TABLE IF EXISTS `topics`;
 CREATE TABLE IF NOT EXISTS `topics` (
-  `topic_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `topic` text NOT NULL,
-  PRIMARY KEY (`topic_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `topics`
---
-
-INSERT INTO `topics` (`topic_id`, `topic`) VALUES
-(1, 'What to do if I have retard'),
-(2, 'What to do if teammate is Ranson');
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -116,17 +91,6 @@ CREATE TABLE IF NOT EXISTS `userquery` (
 
 INSERT INTO `userquery` (`id`, `firstName`, `lastName`, `email`, `msg`, `msgDate`) VALUES
 (1, 'Joe', 'Biden', 'joebiden2yr@gmail.com', ' Hi fren', '2022-02-06');
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `forum`
---
-ALTER TABLE `forum`
-  ADD CONSTRAINT `forum_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`topic_id`),
-  ADD CONSTRAINT `forum_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `accounts` (`userid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
