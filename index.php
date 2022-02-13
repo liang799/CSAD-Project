@@ -253,11 +253,6 @@
 						<span class="invalid-feedback"><?php echo $username_err; ?></span>
 					</div>
 					<div class="mb-3 form-group">
-						<label>Email</label>
-						<input type="text" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
-						<span class="invalid-feedback"><?php echo $email_err; ?></span>
-					</div>
-					<div class="mb-3 form-group">
 						<label>Password</label>
 						<input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="">
 						<span class="invalid-feedback"><?php echo $password_err; ?></span>
@@ -281,16 +276,11 @@
 				  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-				  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+				  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method="post">
 					<div class="mb-3 form-group">
 						<label>Username</label>
 						<input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
 						<span class="invalid-feedback"><?php echo $username_err; ?></span>
-					</div>
-					<div class="mb-3 form-group">
-						<label>Email</label>
-						<input type="text" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
-						<span class="invalid-feedback"><?php echo $email_err; ?></span>
 					</div>
 					<div class="mb-3 form-group">
 						<label>Password</label>

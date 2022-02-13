@@ -51,8 +51,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$stmt->bind_param("sssss", $first, $last, $email, $msg, $today);
 		$stmt->execute(); 
 		$stmt->close();
-
-		/* TODO alert user that query is successful */
+		echo "<script> Message successfully sent! </script>";
+	} else {
+		echo "<script> alert('Invalid Form Input'); </script>";
 	}
 }
 ?>
