@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 13, 2022 at 03:08 AM
+-- Generation Time: Feb 13, 2022 at 01:32 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -31,7 +31,6 @@ DROP TABLE IF EXISTS `accounts`;
 CREATE TABLE IF NOT EXISTS `accounts` (
   `userid` int(11) NOT NULL AUTO_INCREMENT,
   `userName` varchar(16) NOT NULL,
-  `userEmail` varchar(30) NOT NULL,
   `userPassword` varchar(255) NOT NULL,
   `userBio` varchar(1000) DEFAULT NULL,
   `userPicture` longblob,
@@ -43,8 +42,8 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`userid`, `userName`, `userEmail`, `userPassword`, `userBio`, `userPicture`, `userCreateDate`) VALUES
-(5, 'testes', 'testes123@gay.com', 'aaaa', 'hi', NULL, '2022-02-13');
+INSERT INTO `accounts` (`userid`, `userName`, `userPassword`, `userBio`, `userPicture`, `userCreateDate`) VALUES
+(5, 'testes', 'aaaa', 'hi', NULL, '2022-02-13');
 
 -- --------------------------------------------------------
 
@@ -106,16 +105,10 @@ CREATE TABLE IF NOT EXISTS `userquery` (
   `lastName` text NOT NULL,
   `email` varchar(320) NOT NULL,
   `msg` text NOT NULL,
+  `rating` int(11) NOT NULL,
   `msgDate` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `userquery`
---
-
-INSERT INTO `userquery` (`id`, `firstName`, `lastName`, `email`, `msg`, `msgDate`) VALUES
-(1, 'Joe', 'Biden', 'joebiden2yr@gmail.com', ' Hi fren', '2022-02-06');
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Constraints for dumped tables
