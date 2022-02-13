@@ -369,5 +369,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+		<script type="text/javascript">
+			var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+			var registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
+			//myModal.show();
+		</script>
     </body>
 </html>
