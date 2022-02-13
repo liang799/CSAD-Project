@@ -51,9 +51,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		header("location: ../home.php");
 		die();
 	} else {
+		setcookie ("username", $username, strtotime('+1 days'), "/CSAD-Project");
 		setcookie ("err_pass", $password_err, strtotime('+1 days'), "/CSAD-Project");
 		setcookie ("err_user", $username_err, strtotime('+1 days'), "/CSAD-Project");
+		setcookie ("modal_show", "register", strtotime('+1 days'), "/CSAD-Project");
 		header("location: ../index.php");
+		die();
 	}
 }
 ?>

@@ -369,10 +369,16 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <!-- Register/Login Form -->
 		<script type="text/javascript">
 			var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
 			var registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
-			//myModal.show();
+			<?php
+				if ($showLogin)
+					echo "loginModal.show()";
+				if ($showRegister)
+					echo "registerModal.show()";
+			?>
 		</script>
     </body>
 </html>

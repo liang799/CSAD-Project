@@ -7,6 +7,7 @@ $row = [];
 $username_err = $password_err = "";
 $contact_success = false;
 $username = "";
+$showRegister = $showLogin = false;
 
 if (isset($_COOKIE['err_pass']))
 	$password_err = $_COOKIE['err_pass'];
@@ -14,6 +15,20 @@ if (isset($_COOKIE['err_user']))
 	$username_err = $_COOKIE['err_user'];
 if (isset($_COOKIE['username']))
 	$username= $_COOKIE['username'];
+if (isset($_COOKIE['modal_show'])) {
+	switch ($_COOKIE['modal_show']) {
+		case 'register':
+			$showRegister = true;
+			break;
+		case 'login':
+			$showLogin = true;
+			break;
+		default:
+			$showRegister = $showLogin = false;
+			break;
+	}
+}
+
 
 $first = $last = $email = $msg = "";
 $first_err = $last_err = $email_err = $msg_err = "";
