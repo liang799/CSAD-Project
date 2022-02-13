@@ -27,27 +27,62 @@
 				font-weight: 700;
 				border: none;
 				border-radius: 10rem;
+                                margin: 0px 8px 
 			}
 
-			#mainNav .navbar-nav .nav-item:last-child .nav-link {
-				padding:0px 16px;
-			  }
-		</style>
+			
+        </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand" href="#page-top">The Bond</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="register.php">Sign Up</a></li>
-                        <li class="nav-item"><a class="nav-link btn btn-primary btn-sm" href="login.php">Log In</a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-primary btn-sm" href="register.php">Sign Up</a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#myModal">Log In</a></li>        
                     </ul>
+                    <div class="modal" id="#myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title">Login</h2>
+                                      
+                                </div>
+                                <div class="modal-body">
+                                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                        <div class="form-group" class="mb-3">
+                                            <label>Username</label>
+                                            <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                                            <span class="invalid-feedback"><?php echo $username_err; ?></span>
+                                        </div>    
+                                        <div class="form-group" class="mb-3">
+                                            <label>Email</label>
+                                            <input type="text" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
+                                            <span class="invalid-feedback"><?php echo $email_err; ?></span>
+                                        </div>
+                                        <div class="form-group" class="mb-3">
+                                            <label>Password</label>
+                                            <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="">
+                                            <span class="invalid-feedback"><?php echo $password_err; ?></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-primary" value="Submit">
+                                            <input type="reset" class="btn btn-secondary ml-2" value="Reset">
+                                        </div>
+                                        <p>New to this site? <a href="register.php">Register here</a>.</p>
+                                    </form>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -240,7 +275,7 @@
 
         <!-- Footer-->
         <footer class="bg-light py-5">
-            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2021 - Company Name</div></div>
+            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2021 - The Bond</div></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
