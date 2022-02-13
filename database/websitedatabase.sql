@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 23, 2022 at 01:03 PM
+-- Generation Time: Feb 13, 2022 at 01:47 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -29,48 +29,68 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `accounts`;
 CREATE TABLE IF NOT EXISTS `accounts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL AUTO_INCREMENT,
   `userName` varchar(16) NOT NULL,
   `userEmail` varchar(30) NOT NULL,
   `userPassword` varchar(255) NOT NULL,
   `userBio` varchar(1000) DEFAULT NULL,
   `userPicture` longblob,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `accounts`
---
-
-INSERT INTO `accounts` (`id`, `userName`, `userEmail`, `userPassword`, `userBio`, `userPicture`) VALUES
-(3, 'test', 'test@this.com', '$2y$10$7hEaI.q8/SRg2D3icDNCxOxcTt640yK9aWukFvVXjjxnCsz5cd8ra', NULL, NULL);
+  `userCreateDate` date NOT NULL,
+  PRIMARY KEY (`userid`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mood`
+-- Table structure for table `forum`
 --
 
-DROP TABLE IF EXISTS `mood`;
-CREATE TABLE IF NOT EXISTS `mood` (
+DROP TABLE IF EXISTS `forum`;
+CREATE TABLE IF NOT EXISTS `forum` (
+  `authorid` int(11) NOT NULL AUTO_INCREMENT,
+  `topic` text NOT NULL,
+  `title` text NOT NULL,
+  `author` text NOT NULL,
+  `content` text NOT NULL,
+  PRIMARY KEY (`authorid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `topics`
+--
+
+DROP TABLE IF EXISTS `topics`;
+CREATE TABLE IF NOT EXISTS `topics` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` text NOT NULL,
+  `topic` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `mood`
+-- Table structure for table `userquery`
 --
 
-INSERT INTO `mood` (`id`, `name`) VALUES
-(1, 'angry'),
-(2, 'sad'),
-(3, 'confused'),
-(4, 'depressed'),
-(5, 'uneasy'),
-(6, 'pissed'),
-(7, 'unhappy'),
-(8, 'annoyed');
+DROP TABLE IF EXISTS `userquery`;
+CREATE TABLE IF NOT EXISTS `userquery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstName` text NOT NULL,
+  `lastName` text NOT NULL,
+  `email` varchar(320) NOT NULL,
+  `msg` text NOT NULL,
+  `msgDate` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `userquery`
+--
+
+INSERT INTO `userquery` (`id`, `firstName`, `lastName`, `email`, `msg`, `msgDate`) VALUES
+(1, 'Joe', 'Biden', 'joebiden2yr@gmail.com', ' Hi fren', '2022-02-06');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
