@@ -7,10 +7,10 @@ $row = [];
 $username_err = $password_err = "";
 $contact_success = false;
 
-if (!empty($_COOKIE['err_pass']) or !empty($_COOKIE['err_user'])) {
+if (isset($_COOKIE['err_pass']))
 	$password_err = $_COOKIE['err_pass'];
+if (isset($_COOKIE['err_user']))
 	$username_err = $_COOKIE['err_user'];
-}
  
 $first = $last = $email = $msg = "";
 $first_err = $last_err = $email_err = $msg_err = "";
@@ -60,8 +60,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$stmt->bind_param("sssss", $first, $last, $email, $msg, $today);
 		$stmt->execute(); 
 		$stmt->close();
-		//echo "<script>document.getElementById('submitSuccessMessage').style.visibility = 'visible'</script>";
-		//echo "<script>document.getElementById('submitButton').style.visibility = 'hidden'</script>";
 		$contact_success = true;
 	}
 }

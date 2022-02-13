@@ -49,14 +49,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if ( empty($username_err) && empty($email_err) && empty($password_err) ) {
 		$auth = true;
 
-		setcookie ("username", $username, strtotime('+30 days'));
-		setcookie ("password", $encrypted, strtotime('+30 days'));
-		setcookie ("auth", $auth, strtotime('+30 days'));
+		setcookie ("username", $username, strtotime('+30 days'), "/CSAD-Project");
+		setcookie ("password", $encrypted, strtotime('+30 days'), "/CSAD-Project");
+		setcookie ("auth", $auth, strtotime('+30 days'), "/CSAD-Project");
 		header("location: ../home.php");
 		die();
 	} else {
-		setcookie ("err_pass", $password_err, strtotime('+1 days'));
-		setcookie ("err_user", $username_err, strtotime('+1 days'));
+		setcookie ("err_pass", $password_err, strtotime('+1 days'), "/CSAD-Project");
+		setcookie ("err_user", $username_err, strtotime('+1 days'), "/CSAD-Project");
 		header("location: ../index.php");
 	}
 }

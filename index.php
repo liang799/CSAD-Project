@@ -308,7 +308,7 @@
 				  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-				  <form action="register.php" method="post">
+				  <form action="include/register.php" method="post">
 					<div class="mb-3 form-group">
 						<label>Username</label>
 						<input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
@@ -338,11 +338,7 @@
 				  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-<<<<<<< HEAD
-				  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?> method=post">
-=======
 				  <form action="include/login.php" method="post">
->>>>>>> 36d4c60a3e088787b7b309724412a1a66b340926
 					<div class="mb-3 form-group">
 						<label>Username</label>
 						<input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
