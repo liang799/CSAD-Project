@@ -6,12 +6,15 @@ require_once "functions.php";
 $row = [];
 $username_err = $password_err = "";
 $contact_success = false;
+$username = "";
 
 if (isset($_COOKIE['err_pass']))
 	$password_err = $_COOKIE['err_pass'];
 if (isset($_COOKIE['err_user']))
 	$username_err = $_COOKIE['err_user'];
- 
+if (isset($_COOKIE['username']))
+	$username= $_COOKIE['username'];
+
 $first = $last = $email = $msg = "";
 $first_err = $last_err = $email_err = $msg_err = "";
 $result = $row = [];
