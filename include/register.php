@@ -45,6 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$stmt->execute(); 
 		$stmt->close();
 
+		$auth = true;
 		setcookie ("username", $username, strtotime('+30 days'), "/CSAD-Project");
 		setcookie ("password", $encrypted, strtotime('+30 days'), "/CSAD-Project");
 		setcookie ("auth", $auth, strtotime('+30 days'), "/CSAD-Project");
