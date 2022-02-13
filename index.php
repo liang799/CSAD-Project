@@ -33,20 +33,21 @@
 				padding:0px 16px;
 			  }
 		</style>
-                <script>var exampleModal = document.getElementById('exampleModal')
-                    exampleModal.addEventListener('show.bs.modal', function (event) {
-                      // Button that triggered the modal
-                      var button = event.relatedTarget
-                      // Extract info from data-bs-* attributes
-                      var type = button.getAttribute('data-bs-whatever')
-                      // If necessary, you could initiate an AJAX request here
-                      // and then do the updating in a callback.
-                      //
-                      // Update the modal's content.
-					  var title = document.getElementById('exampleModalLabel');
-					  title.value = type;
-
-                    })</script>
+		<script>
+			var exampleModal = document.getElementById('exampleModal')
+			exampleModal.addEventListener('show.bs.modal', function (event) {
+			  // Button that triggered the modal
+			  var button = event.relatedTarget
+			  // Extract info from data-bs-* attributes
+			  var type = button.getAttribute('data-bs-whatever')
+			  // If necessary, you could initiate an AJAX request here
+			  // and then do the updating in a callback.
+			  //
+			  // Update the modal's content.
+			  var title = document.getElementById('exampleModalLabel');
+			  title.value = type;
+			})
+		</script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -275,7 +276,7 @@
 						<input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="">
 						<span class="invalid-feedback"><?php echo $password_err; ?></span>
 					</div>
-					<div class="modal-footer">
+					<div class="modal-footer form-group">
 						<input type="reset" class="btn btn-secondary ml-2" value="Reset">
 						<input type="submit" class="btn btn-primary" value="Submit">
 					</div>
