@@ -9,7 +9,7 @@
 		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 			<style>
 				body {
-				background: rgb(99, 39, 120)
+				background: rgb(102, 125, 75)
 				}
 
 				.form-control:focus {
@@ -100,16 +100,17 @@
 					<div class="col-md-3 border-right">
 						<div class="d-flex flex-column align-items-center text-center p-3 py-5">
 
-                    <div class="imagehover">
-						<img class="rounded-circle imagehover mx-auto d-block" src="assets/img/user/default.png" style="width:128px;height:128px">
-                        <a href="http://localhost/CSAD_GROUP_PROJECT/editprofilepicture.php">
-                            <!--If it user is looking at his own profile, show "Update Profile Picture"-->
-							<div class="imagehover-middle">
-								<div class="imagehover-text" style="height:50%">Update Profile Picture</div>
+							<div class="imagehover">
+								<img class="rounded-circle imagehover mx-auto d-block" src="assets/img/user/default.png" style="width:128px;height:128px">
+								<a href="http://localhost/CSAD_GROUP_PROJECT/editprofilepicture.php">
+									<!--If it user is looking at his own profile, show "Update Profile Picture"-->
+									<div class="imagehover-middle">
+										<div class="imagehover-text" style="height:50%">Update Profile Picture</div>
+									</div>
+								</a>
 							</div>
-						</a>
-                    </div>
-								<span style="padding-top: 2px" class="font-weight-bold">Edogaru</span>
+							<span style="padding-top: 2px" class="font-weight-bold">Edogaru</span>
+							<span class="text-black-50">Joined on 2022</span>
 						</div>	
 					</div>
 					<div class="col-md-5"> 
@@ -127,9 +128,14 @@
 								<div class="row mt-3">
 									<div class="col-md-6">
 										<label>Bio</label>
-										<textarea name="message" type="text" style="height: 3rem" 
+										<textarea name="message" type="text" style="height: 6rem" 
 												  class="form-control <?php echo (!empty($msg_err)) ? 'is-invalid' : ''; ?>"><?php echo "test"; ?>
 										</textarea>
+									</div>
+								</div>
+								<div class="row mt-4">
+									<div class="col-md-6">
+										<input type="submit" class="btn btn-primary" value="Submit">
 									</div>
 								</div>
 							</form>
