@@ -261,7 +261,7 @@
                             <img class="img-fluid" src="assets/img/portfolio/thumbnails/3.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">P2019590</div>
-                                <div class="project-name">Shen Bo Yan</div>
+                                <div class="project-name">Shen BoYan</div>
                                 <div class="project-category text-white-50">Database Developer</div>
                             </div>
                         </a>
@@ -484,12 +484,14 @@
 		<script type="text/javascript">
 			var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
 			var registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
+                        var submitModal = new bootstrap.Modal(document.getElementById('submitModal'));
 			<?php
 				if ($showLogin)
 					echo "loginModal.show()";
 				if ($showRegister)
 					echo "registerModal.show()";
 			?>
+                            submitModal.show();
 		</script>
     </body>
 </html>
