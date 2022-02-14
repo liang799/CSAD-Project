@@ -101,7 +101,7 @@
 						<div class="d-flex flex-column align-items-center text-center p-3 py-5">
 
                     <div class="imagehover">
-                        <img class="rounded-circle imagehover mx-auto d-block" src="uploads/default.png" style="width:128px;height:128px">
+						<img class="rounded-circle imagehover mx-auto d-block" src="assets/img/user/default.png" style="width:128px;height:128px">
                         <a href="http://localhost/CSAD_GROUP_PROJECT/editprofilepicture.php">
                             <!--If it user is looking at his own profile, show "Update Profile Picture"-->
 							<div class="imagehover-middle">
