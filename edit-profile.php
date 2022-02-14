@@ -109,7 +109,7 @@
 							</div>
 						</a>
                     </div>
-								<span class="font-weight-bold">Edogaru</span>
+								<span style="padding-top: 2px" class="font-weight-bold">Edogaru</span>
 						</div>	
 					</div>
 					<div class="col-md-5 border-right">
