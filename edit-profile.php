@@ -112,19 +112,27 @@
 								<span style="padding-top: 2px" class="font-weight-bold">Edogaru</span>
 						</div>	
 					</div>
-					<div class="col-md-5 border-right">
+					<div class="col-md-5"> 
 						<div class="p-3 py-5">
 							<div class="d-flex justify-content-between align-items-center mb-3">
-								<h4 class="text-right">Profile Settings</h4>
+								<h4>Profile Settings</h4>
 							</div>
-						</div>
-					</div>
-
-					<div class="col-md-4">
-						<div class="p-3 py-5">
-							<div class="d-flex justify-content-between align-items-center experience">
-									<span>Rate Experience </span>
-							</div><br>
+							<form>
+								<div class="row mt-2">
+									<div class="col-md-6">
+										<label>Username</label>
+										<input type="text" name="username" class="form-control" value="test user" disabled>
+									</div>
+								</div>
+								<div class="row mt-3">
+									<div class="col-md-6">
+										<label>Bio</label>
+										<textarea name="message" type="text" style="height: 3rem" 
+												  class="form-control <?php echo (!empty($msg_err)) ? 'is-invalid' : ''; ?>"><?php echo "test"; ?>
+										</textarea>
+									</div>
+								</div>
+							</form>
 						</div>
 					</div>
 			</div>
