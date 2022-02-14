@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 13, 2022 at 01:32 PM
+-- Generation Time: Feb 14, 2022 at 10:54 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -36,14 +36,15 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `userPicture` longblob,
   `userCreateDate` date NOT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `accounts`
 --
 
 INSERT INTO `accounts` (`userid`, `userName`, `userPassword`, `userBio`, `userPicture`, `userCreateDate`) VALUES
-(5, 'testes', 'aaaa', 'hi', NULL, '2022-02-13');
+(7, 'IpiakYourPigu', '$2y$10$u/RCllzKu6hRn/QmlsiuiuKkuZLXVD5F3aYteXc9k2aOAn8jbPugi', NULL, NULL, '2022-02-14'),
+(8, 'John', '$2y$10$fjX8sH7FBkdePQBTbe4g/eQnacOnFsAalwUeeycgyfONTL3FZpPDC', NULL, NULL, '2022-02-14');
 
 -- --------------------------------------------------------
 
@@ -61,15 +62,17 @@ CREATE TABLE IF NOT EXISTS `forum` (
   PRIMARY KEY (`post_id`),
   KEY `topic_id` (`topic_id`),
   KEY `userid` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `forum`
 --
 
 INSERT INTO `forum` (`post_id`, `topic_id`, `title`, `userid`, `content`) VALUES
-(1, 2, 'Hi dis slacker abit cringg', 5, 'Anyone who work wif him can relate hah dunnid explain'),
-(2, 1, 'Funny', 5, 'Veg for dayz');
+(4, 1, 'Funny', 7, 'Very funny'),
+(5, 1, 'Funny', 7, 'Very funny'),
+(6, 2, 'Funny hor', 7, 'hor'),
+(7, 1, 'heheheh', 8, 'aaa');
 
 -- --------------------------------------------------------
 
@@ -95,6 +98,22 @@ INSERT INTO `topics` (`topic_id`, `topic`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `userfeedback`
+--
+
+DROP TABLE IF EXISTS `userfeedback`;
+CREATE TABLE IF NOT EXISTS `userfeedback` (
+  `feedbackid` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `rating` int(11) NOT NULL,
+  `feedback` text NOT NULL,
+  PRIMARY KEY (`feedbackid`),
+  KEY `userid` (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `userquery`
 --
 
@@ -105,7 +124,6 @@ CREATE TABLE IF NOT EXISTS `userquery` (
   `lastName` text NOT NULL,
   `email` varchar(320) NOT NULL,
   `msg` text NOT NULL,
-  `rating` int(11) NOT NULL,
   `msgDate` date NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
@@ -120,6 +138,12 @@ CREATE TABLE IF NOT EXISTS `userquery` (
 ALTER TABLE `forum`
   ADD CONSTRAINT `forum_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `topics` (`topic_id`),
   ADD CONSTRAINT `forum_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `accounts` (`userid`);
+
+--
+-- Constraints for table `userfeedback`
+--
+ALTER TABLE `userfeedback`
+  ADD CONSTRAINT `userid` FOREIGN KEY (`userid`) REFERENCES `accounts` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
