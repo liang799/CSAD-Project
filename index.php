@@ -203,30 +203,30 @@
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Sturdy Themes</h3>
-                            <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
+                            <div class="mb-2"><i class="bi bi-flower1 fs-1 text-primary"></i></div>
+                            <h3 class="h4 mb-2">Join Our Programs</h3>
+                            <p class="text-muted mb-0">Here at TREE, we collaborate with other organisations to come up with projects to raise awareness about environmental sustainability. Join Us!</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
+                            <div class="mb-2"><i class="bi bi-megaphone-fill fs-1 text-primary"></i></div>
                             <h3 class="h4 mb-2">Up to Date</h3>
-                            <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
+                            <p class="text-muted mb-0">Learn about our latest activities in our announcements and share them on social media!</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Ready to Publish</h3>
-                            <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+                            <div class="mb-2"><i class="bi bi-chat-right-text fs-1 text-primary"></i></div>
+                            <h3 class="h4 mb-2">Access our forums</h3>
+                            <p class="text-muted mb-0">Share and interact with other great members in our community on how to save our environment!</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Made with Love</h3>
-                            <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
+                            <h3 class="h4 mb-2">Donate To Our Cause</h3>
+                            <p class="text-muted mb-0">Our organisation is non-profit. Your donations help us to fund our projects to we can present more opportunities to the public!</p>
                         </div>
                     </div>
                 </div>
@@ -491,7 +491,7 @@
 				if ($showRegister)
 					echo "registerModal.show()";
 			?>
-                            submitModal.show();
+                                    //submitModal.show();
 		</script>
     </body>
 </html>
