@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 14, 2022 at 02:06 PM
+-- Generation Time: Feb 14, 2022 at 03:41 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -45,6 +45,20 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 INSERT INTO `accounts` (`userid`, `userName`, `userPassword`, `userBio`, `userPicture`, `userCreateDate`) VALUES
 (7, 'IpiakYourPigu', '$2y$10$u/RCllzKu6hRn/QmlsiuiuKkuZLXVD5F3aYteXc9k2aOAn8jbPugi', NULL, NULL, '2022-02-14'),
 (8, 'John', '$2y$10$fjX8sH7FBkdePQBTbe4g/eQnacOnFsAalwUeeycgyfONTL3FZpPDC', NULL, NULL, '2022-02-14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `announcements`
+--
+
+DROP TABLE IF EXISTS `announcements`;
+CREATE TABLE IF NOT EXISTS `announcements` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `content` varchar(500) NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -126,7 +140,14 @@ CREATE TABLE IF NOT EXISTS `userquery` (
   `msg` text NOT NULL,
   `msgDate` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `userquery`
+--
+
+INSERT INTO `userquery` (`id`, `firstName`, `lastName`, `email`, `msg`, `msgDate`) VALUES
+(9, 'hahha', 'funny', 'thetreeant@gmail.com', ' hehehhheh', '2022-02-14');
 
 --
 -- Constraints for dumped tables
