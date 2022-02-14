@@ -257,28 +257,29 @@
                             <!-- first name input-->
                             <div class="form-floating mb-3">
 								<input type="text" name="first" class="form-control <?php echo (!empty($first_err)) ? 'is-invalid' : ''; ?>" 
-									   value="<?php echo $first; ?>">
+									   value="<?php echo $first; ?>" <?php if ($contact_success) echo "disabled" ?> >
                                 <label for="first">First name</label>
 							<div class="invalid-feedback" ><?php echo $first_err ?></div>
                             </div>
                             <!-- last name input-->
                             <div class="form-floating mb-3">
 								<input type="text" name="last" class="form-control <?php echo (!empty($last_err)) ? 'is-invalid' : ''; ?>" 
-									   value="<?php echo $last; ?>">
+									   value="<?php echo $last; ?>" <?php if ($contact_success) echo "disabled" ?>>
                                 <label for="last">Last name</label>
 							<div class="invalid-feedback" ><?php echo $last_err ?></div>
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
 								<input type="text" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" 
-									   value="<?php echo $email; ?>">
+									   value="<?php echo $email; ?>" <?php if ($contact_success) echo "disabled" ?> >
                                 <label for="email">Email address</label>
                                 <div class="invalid-feedback" ><?php echo $email_err ?></div>
                             </div>
                             <!-- Message input-->
                             <div class="form-floating mb-3">
                                 <textarea name="message" type="text" style="height: 10rem" 
-										  class="form-control <?php echo (!empty($msg_err)) ? 'is-invalid' : ''; ?>"> <?php echo $msg; ?></textarea>
+										  class="form-control <?php echo (!empty($msg_err)) ? 'is-invalid' : ''; ?>"
+										  <?php if ($contact_success) echo "disabled" ?> > <?php echo $msg; ?></textarea>
                                 <label for="message">Message</label>
                                 <div class="invalid-feedback" ><?php echo $msg_err ?></div>
                             </div>
