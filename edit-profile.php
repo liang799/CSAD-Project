@@ -112,7 +112,14 @@
 								<span class="font-weight-bold">Edogaru</span>
 						</div>	
 					</div>
-					<div class="col-md-5 border-right"></div>
+					<div class="col-md-5 border-right">
+						<div class="p-3 py-5">
+							<div class="d-flex justify-content-between align-items-center mb-3">
+								<h4 class="text-right">Profile Settings</h4>
+							</div>
+						</div>
+					</div>
+
 					<div class="col-md-4">
 						<div class="p-3 py-5">
 							<div class="d-flex justify-content-between align-items-center experience">
