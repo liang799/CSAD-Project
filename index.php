@@ -163,7 +163,7 @@
 							making a world a better place by gathering volunteers to plant more trees
 							and raising awareness of deforestation
 						</p>
-                        <a class="btn btn-primary btn-xl" href="register.php">Join Now</a>
+                        <a class="btn btn-primary btn-xl" data-bs-toggle="modal" data-bs-target="#registerModal">Join Now</a>
                     </div>
                 </div>
             </div>
