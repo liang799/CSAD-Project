@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 13, 2022 at 01:32 PM
+-- Generation Time: Feb 15, 2022 at 03:28 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -33,17 +33,32 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `userName` varchar(16) NOT NULL,
   `userPassword` varchar(255) NOT NULL,
   `userBio` varchar(1000) DEFAULT NULL,
-  `userPicture` longblob,
+  `userPicture` varchar(100) DEFAULT NULL,
   `userCreateDate` date NOT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `accounts`
 --
 
 INSERT INTO `accounts` (`userid`, `userName`, `userPassword`, `userBio`, `userPicture`, `userCreateDate`) VALUES
-(5, 'testes', 'aaaa', 'hi', NULL, '2022-02-13');
+(7, 'IpiakYourPigu', '$2y$10$u/RCllzKu6hRn/QmlsiuiuKkuZLXVD5F3aYteXc9k2aOAn8jbPugi', NULL, NULL, '2022-02-14'),
+(9, 'John', '$2y$10$knL3m8j1V/GbVMBmr.0OAOIlX8Yw0yY0HOgY.pm6qspdHF2l09Lz6', NULL, NULL, '2022-02-15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `announcements`
+--
+
+DROP TABLE IF EXISTS `announcements`;
+CREATE TABLE IF NOT EXISTS `announcements` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `content` varchar(500) NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -61,15 +76,16 @@ CREATE TABLE IF NOT EXISTS `forum` (
   PRIMARY KEY (`post_id`),
   KEY `topic_id` (`topic_id`),
   KEY `userid` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `forum`
 --
 
 INSERT INTO `forum` (`post_id`, `topic_id`, `title`, `userid`, `content`) VALUES
-(1, 2, 'Hi dis slacker abit cringg', 5, 'Anyone who work wif him can relate hah dunnid explain'),
-(2, 1, 'Funny', 5, 'Veg for dayz');
+(12, 1, 'Hi i have retard', 7, 'aaa'),
+(13, 2, '1111 Ranson 2222', 9, 'ttt'),
+(14, 2, 'aaaa', 9, 'qj');
 
 -- --------------------------------------------------------
 
@@ -105,10 +121,32 @@ CREATE TABLE IF NOT EXISTS `userquery` (
   `lastName` text NOT NULL,
   `email` varchar(320) NOT NULL,
   `msg` text NOT NULL,
-  `rating` int(11) NOT NULL,
   `msgDate` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `userquery`
+--
+
+INSERT INTO `userquery` (`id`, `firstName`, `lastName`, `email`, `msg`, `msgDate`) VALUES
+(9, 'hahha', 'funny', 'thetreeant@gmail.com', ' hehehhheh', '2022-02-14'),
+(10, 'jontron', 'tv', 'bobswifcheese@gmail.com', ' hihi', '2022-02-15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `userrating`
+--
+
+DROP TABLE IF EXISTS `userrating`;
+CREATE TABLE IF NOT EXISTS `userrating` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` text,
+  `rating` int(11) NOT NULL,
+  `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Constraints for dumped tables
