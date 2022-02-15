@@ -7,7 +7,8 @@ $user = $_COOKIE['username'];
 $result = selectUser($conn, $user);
 $row = $result->fetch_all(MYSQLI_ASSOC);
 $date = $row[0]['userCreateDate'];
-
+$bio = "";
+$msg_err = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 	if (isset($_FILES['file'])) {
@@ -30,6 +31,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			$result = $stmt->get_result();
 			$stmt->close();
 		}
+	}
+
+	if (empty(trim($_POST["message"]))) {
+		$msg_err = "Bio cannot be empty";
+	} else {
+		$bio = $_POST['message'];
+		$stmt = $conn->prepare("UPDATE accounts SET userBio = ? WHERE userName = ?"); 
+		$stmt->bind_param("ss", $bio, $user);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$stmt->close();
 	}
 }
 ?>
@@ -77,8 +89,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 									<div class="col-md-6">
 										<label>Bio</label>
 										<textarea name="message" type="text" style="height: 6rem" 
-												  class="form-control <?php echo (!empty($msg_err)) ? 'is-invalid' : ''; ?>"><?php echo "test"; ?>
+												  class="form-control <?php echo (!empty($msg_err)) ? 'is-invalid' : ''; ?>"><?php echo $bio; ?>
 										</textarea>
+										<span class="invalid-feedback"><?php echo $msg_err; ?></span>
 									</div>
 								</div>
 								<div class="row mt-4">
