@@ -490,10 +490,10 @@
   	 		<div class="footer-col">
   	 			<h4>follow us</h4>
   	 			<div class="social-links">
-  	 				<a href="#"><i class="bi bi-facebook"></i></a>
-  	 				<a href="#"><i class="bi bi-twitter"></i></a>
-  	 				<a href="#"><i class="bi bi-instagram"></i></a>
-  	 				<a href="#"><i class="bi bi-linkedin"></i></a>
+  	 				<a href="https://facebook.com"><i class="bi bi-facebook"></i></a>
+  	 				<a href="https://twitter.com"><i class="bi bi-twitter"></i></a>
+  	 				<a href="https://instagram.com"><i class="bi bi-instagram"></i></a>
+  	 				<a href="https://linkedin.com"><i class="bi bi-linkedin"></i></a>
   	 			</div>
   	 		</div>
   	 	</div>
