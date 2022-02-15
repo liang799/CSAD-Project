@@ -8,15 +8,29 @@ $result = selectUser($conn, $user);
 $row = $result->fetch_all(MYSQLI_ASSOC);
 $date = $row[0]['userCreateDate'];
 
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $image = $_FILES['image']['tmp_name']['0'];
-    $img = file_get_contents($image);
+	if (isset($_FILES['file'])) {
+		$targetDir = "uploads/";
+		$fileName = basename($_FILES["file"]["name"]);
+		$targetFilePath = $targetDir . $fileName;
+		$fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 
-	$stmt = $conn->prepare("UPDATE accounts SET userPicture = ? WHERE userName = ?"); 
-
-	$stmt->bind_param("ss", $img, $user);
-	$stmt->execute();
-	$stmt->close();
+        if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
+			$stmt = $conn->prepare("UPDATE accounts SET userPicture = ? WHERE userName = ?"); 
+			$stmt->bind_param("ss", $fileName, $user);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			$stmt->close();
+		} else {
+			$fileName = "default.png";
+			$stmt = $conn->prepare("UPDATE accounts SET userPicture = ? WHERE userName = ?"); 
+			$stmt->bind_param("ss", $fileName, $user);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			$stmt->close();
+		}
+	}
 }
 ?>
 
@@ -41,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 							    <i class="bi bi-camera">&nbsp;</i>
 								<span>Change Image</span>
 							  </label>
-							  <input id="file" type="file" name="image[]" onchange="loadFile(event)"/>
+							  <input id="file" type="file" name="file" onchange="loadFile(event)"/>
 							  <img src="assets/img/user/default.png" id="output" width="200" />
 							</div>
 							<span style="padding-top: 15px" class="font-weight-bold"><?php echo $user ?></span>
