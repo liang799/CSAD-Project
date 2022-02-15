@@ -385,7 +385,7 @@
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form class="rating">
+                                <form class="rating" action="include/rating.php">
                                     <label>
                                       <input type="radio" name="stars" value="1" />
                                       <span class="icon">★</span>
@@ -418,9 +418,10 @@
                                     </label>                                   			
                                 </div>
                           <div class="modal-footer form-group">
-						<input type="reset" class="btn btn-secondary ml-2" value="Reset">
-						<input type="submit" class="btn btn-primary" value="Submit">
-					</div>
+							<input type="hidden" id="rating-type" name="rating-type" value="Contact Us form">
+							<input type="reset" class="btn btn-secondary ml-2" value="Reset">
+							<input type="submit" class="btn btn-primary" value="Submit">
+						</div>
                           </form>
                         </div>
                     </div>
