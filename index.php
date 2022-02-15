@@ -98,7 +98,10 @@
                           color: #000;
                           text-shadow: 0 0 5px #09f;
                         }
-                        
+                        a.small:hover{
+                            color:#f4623a;
+                        }
+ 
 			<?php 
 				if (!$contact_success) {
 					echo '
@@ -259,13 +262,6 @@
         </div>
         <!-- Call to action-->
         <section class="page-section bg-dark text-white">
-            <!--Paypal>
-            <div class="container p-3 my-3 bg-warning text-black text-center" style="width:360px">
-                <h1 id="mypaypalid" >SUPPORT US</h1>
-                <div class="d-flex justify-content-center" id="paypal-payment-button" style="margin-bottom: 25px"></div>
-                <script src="https://www.paypal.com/sdk/js?client-id=AQZp3bCBCRUeJ5HSCLmNDZaADbrY8jrzOkFBF44Cmh0fQ6U7Ec3LTVxLLvgL7PObsAgSLkJTNmKvNxb-&disable-funding=credit,card"></script>
-                <script src="paypal.js"></script>
-            </div-->
             <div class="container px-4 px-lg-5 text-center">
             <h2 class="mb-4">Become an Honorary Member!</h2>
             <div id="paypal-button-container-P-7YF52428BY641674SMIEMUWI" ></div>
@@ -305,33 +301,33 @@
                 </div>
                 <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
                     <div class="col-lg-6">
-						<form action="#contact" method="post"> <!--- modern html don't need to self --->
+                            <form action="#contact" method="post"> <!--- modern html don't need to self --->
                             <!-- first name input-->
                             <div class="form-floating mb-3">
-								<input type="text" name="first" class="form-control <?php echo (!empty($first_err)) ? 'is-invalid' : ''; ?>" 
-									   value="<?php echo $first; ?>" <?php if ($contact_success) echo "disabled" ?> >
+                                <input type="text" name="first" class="form-control <?php echo (!empty($first_err)) ? 'is-invalid' : ''; ?>" 
+                                value="<?php echo $first; ?>" <?php if ($contact_success) echo "disabled" ?> >
                                 <label for="first">First name</label>
-							<div class="invalid-feedback" ><?php echo $first_err ?></div>
+                                <div class="invalid-feedback" ><?php echo $first_err ?></div>
                             </div>
                             <!-- last name input-->
                             <div class="form-floating mb-3">
-								<input type="text" name="last" class="form-control <?php echo (!empty($last_err)) ? 'is-invalid' : ''; ?>" 
-									   value="<?php echo $last; ?>" <?php if ($contact_success) echo "disabled" ?>>
+                                <input type="text" name="last" class="form-control <?php echo (!empty($last_err)) ? 'is-invalid' : ''; ?>" 
+                                value="<?php echo $last; ?>" <?php if ($contact_success) echo "disabled" ?>>
                                 <label for="last">Last name</label>
-							<div class="invalid-feedback" ><?php echo $last_err ?></div>
+                            <div class="invalid-feedback" ><?php echo $last_err ?></div>
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
-								<input type="text" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" 
-									   value="<?php echo $email; ?>" <?php if ($contact_success) echo "disabled" ?> >
+                                <input type="text" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" 
+                                value="<?php echo $email; ?>" <?php if ($contact_success) echo "disabled" ?> >
                                 <label for="email">Email address</label>
                                 <div class="invalid-feedback" ><?php echo $email_err ?></div>
                             </div>
                             <!-- Message input-->
                             <div class="form-floating mb-3">
                                 <textarea name="message" type="text" style="height: 10rem" 
-										  class="form-control <?php echo (!empty($msg_err)) ? 'is-invalid' : ''; ?>"
-										  <?php if ($contact_success) echo "disabled" ?> > <?php echo $msg; ?></textarea>
+                                class="form-control <?php echo (!empty($msg_err)) ? 'is-invalid' : ''; ?>"
+                                <?php if ($contact_success) echo "disabled" ?> > <?php echo $msg; ?></textarea>
                                 <label for="message">Message</label>
                                 <div class="invalid-feedback" ><?php echo $msg_err ?></div>
                             </div>
@@ -457,8 +453,48 @@
 		</div>
 
         <!-- Footer-->
-        <footer class="bg-light py-5">
-            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - TREE.com</div></div>
+        <footer class="bg-dark py-5">
+            <div class="container px-4 px-lg-5">
+                <div class="row">
+  	 		<div class="footer-col">
+  	 			<h4>company</h4>
+  	 			<ul>
+  	 				<li><a href="#">about us</a></li>
+  	 				<li><a href="#">our services</a></li>
+  	 				<li><a href="#">privacy policy</a></li>
+  	 				<li><a href="#">affiliate program</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>get help</h4>
+  	 			<ul>
+  	 				<li><a href="#">FAQ</a></li>
+  	 				<li><a href="#">shipping</a></li>
+  	 				<li><a href="#">returns</a></li>
+  	 				<li><a href="#">order status</a></li>
+  	 				<li><a href="#">payment options</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>online shop</h4>
+  	 			<ul>
+  	 				<li><a href="#">watch</a></li>
+  	 				<li><a href="#">bag</a></li>
+  	 				<li><a href="#">shoes</a></li>
+  	 				<li><a href="#">dress</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>follow us</h4>
+  	 			<div class="social-links">
+  	 				<a href="#"><i class="bi bi-facebook"></i></a>
+  	 				<a href="#"><i class="bi bi-twitter"></i></a>
+  	 				<a href="#"><i class="bi bi-instagram"></i></a>
+  	 				<a href="#"><i class="bi bi-linkedin"></i></a>
+  	 			</div>
+  	 		</div>
+  	 	</div>
+            </div>
         </footer>
         <!-- Register/Login Form -->
 		<script type="text/javascript">
