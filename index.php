@@ -226,8 +226,8 @@
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/jhin.jpg" title="Joseph">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/jhin.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/joseph.jpg" title="Joseph">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/joseph.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">P2032120</div>
                                 <div class="project-name">Joseph Loh</div>
