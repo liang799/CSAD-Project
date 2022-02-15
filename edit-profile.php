@@ -42,6 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$stmt->close();
+		header("location: home.php");
 	}
 }
 ?>

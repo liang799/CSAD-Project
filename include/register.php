@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		setcookie ("username", $username, strtotime('+30 days'), "/CSAD-Project");
 		setcookie ("password", $encrypted, strtotime('+30 days'), "/CSAD-Project");
 		setcookie ("auth", $auth, strtotime('+30 days'), "/CSAD-Project");
-		header("location: ../home.php");
+		header("location: ../edit-profile.php");
 		die();
 	} else {
 		setcookie ("username", $username, strtotime('+1 days'), "/CSAD-Project");
