@@ -338,10 +338,11 @@
                             <div id="submitSuccessMessage">
                                 <div class="text-center mb-3">
                                     <div class="fw-bolder">Form submission successful!</div>
+									<div><a href="#contact" data-bs-toggle="modal" data-bs-target="#submitModal">Help us out by rating your experience!</a></div>   
                                 </div>
                             </div>
                             <!-- Submit Button-->
-                            <div class="d-grid"><button class="btn btn-primary btn-xl" id="submitButton" type="submit" data-bs-toggle="modal" data-bs-target="#submitModal">Submit</button></div>
+                            <div class="d-grid"><button class="btn btn-primary btn-xl" id="submitButton" type="submit">Submit</button></div>
                         </form>
                     </div>
                 </div>
