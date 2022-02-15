@@ -120,8 +120,6 @@
 		</style>
     </head>
     <body id="page-top">
-		<script>
-		</script>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
