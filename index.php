@@ -417,9 +417,13 @@
                                       <span class="icon">★</span>
                                       <span class="icon">★</span>
                                       <span class="icon">★</span>
-                                    </label>
-                                </form>
-                            </div>
+                                    </label>                                   			
+                                </div>
+                          <div class="modal-footer form-group">
+						<input type="reset" class="btn btn-secondary ml-2" value="Reset">
+						<input type="submit" class="btn btn-primary" value="Submit">
+					</div>
+                          </form>
                         </div>
                     </div>
                 </div>
