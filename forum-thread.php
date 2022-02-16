@@ -32,6 +32,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		setcookie ("modal", "", strtotime('+1 days'), "/CSAD-Project");
 	}
 }
+
+$getReply = mysqli_query($conn, "SELECT * FROM forum JOIN accounts WHERE parent_post_id='$postid'");
+$queryResult = mysqli_num_rows($getReply);
+
 ?>
 
 <!DOCTYPE html>
@@ -90,8 +94,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="col-lg-9 mb-3">
                   <div class="row text-right mb-5">
 					  <div class="col-lg-9 mb-3 mb-sm-0">
-						  <!--- replies --->
-<?php						  newPost('kkl', 'tea', 'asdf', 'asdf', 'kasdf'); ?>
+						  <?php 
+							if ($queryResult > 0){
+								while($row = mysqli_fetch_assoc($getReply)){
+									newPost($row['post_id'], $row['title'], $row['timestamp'], $row['userName'], $row['content']);
+								}    
+							}
+						  ?>
 					  </div>
                   </div>
               </div>
