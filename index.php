@@ -130,6 +130,7 @@
                         <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#activity">Activities</a></li>
                         <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Sign Up</a></li>
                         <li class="nav-item"><a class="nav-link btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a></li>
                     </ul>                    
@@ -253,8 +254,8 @@
                             </div>
                         </a>
                     </div>
-                    <!--maybe rename the projects and change photos to people's portraits-->
-                    
+                    <!-- comment -->
+                    <!--maybe rename the projects and change photos to people's portraits-->              
                 </div>
             </div>
         </div>
@@ -286,6 +287,63 @@
             </div> 
             
         </section>
+        <!--Activity-->
+        <div id=activity class="container p-3 my-3 bg-secondary text-center" style="width:1100px">
+            <h1 class="card-text text-white" id="activities" >Our Activities!</h1>
+            <p class="card-text text-white">Join our wide variety of programs</p>
+
+            <div class="card-vertical ">
+                <div class="container bg-info  text-center">
+                    <div class="card" style="width:1000px">
+                        <img class="card-img-top" src="assets/img/portfolio/fullsize/treeplanting.jpg" alt="Card image" style="width:100%">
+                        <div class="card-body">
+
+                            <h4 class="card-title text-black">Tree Planting</h4>
+                            <p class="card-text text-black"> Join Us at our tree planting events every month!</p>
+                            <p class="card-text text-black"> CALL US AT 90231253</p>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#joinModal">
+                                Join Activity!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="container bg-info  text-center ">
+                    <div class="card" style="width:1000px">
+                        <img class="card-img-top" src="assets/img/portfolio/fullsize/beachcleaning.jpg" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            
+                            <h4 class="card-title">Beach Cleanup</h4>
+                            <p class="card-text"> We host beach cleanups every weekend!</p>
+                            <p class="card-text"> CALL US AT 90438532</p>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#joinModal">
+                                Join Activity!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="container bg-info  text-center">
+                    <div class="card" style="width:1000px">
+                        <img class="card-img-top" src="assets/img/portfolio/fullsize/workshop.jpg" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            
+                            <br>
+                            <h4 class="card-title">Environmental Talks and Workshops</h4>
+                            <p class="card-text"> We frequently hold talks and workshops to educate the public on how to take better care of the environment</p>
+                            <p class="card-text"> CALL US AT 68495435</p>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#joinModal">
+                                Join Activity!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <!-- Contact-->
         <section class="page-section" id="contact">
@@ -417,11 +475,11 @@
                                       <span class="icon">★</span>
                                     </label>                                   			
                                 </div>
-                          <div class="modal-footer form-group">
-							<input type="hidden" id="rating-type" name="rating-type" value="Contact Us form">
-							<input type="reset" class="btn btn-secondary ml-2" value="Reset">
-							<input type="submit" class="btn btn-primary" value="Submit">
-						</div>
+                            <div class="modal-footer form-group">
+                                    <input type="hidden" id="rating-type" name="rating-type" value="Contact Us form">
+                                    <input type="reset" class="btn btn-secondary ml-2" value="Reset">
+                                    <input type="submit" class="btn btn-primary" value="Submit">
+                            </div>
                           </form>
                         </div>
                     </div>
@@ -455,6 +513,23 @@
 			  </div>
 			</div>
 		</div>
+                <!-- Join Modal -->
+                            <div class="modal fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="joinModal" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Thank you!</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="text-body">You will now receive notifications of any upcoming public events and you may enter registration via the email that comes along with it. Much love fellow nature-lover!</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
 		<?php include 'include/footer.php' ?>
         <!-- Register/Login Form -->
@@ -462,6 +537,7 @@
 			var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
 			var registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
                         var submitModal = new bootstrap.Modal(document.getElementById('submitModal'));
+                        var joinModal = new bootstrap.Modal(document.getElementById('joinModal'));
 			<?php
 				if ($showLogin)
 					echo "loginModal.show()";
