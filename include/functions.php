@@ -67,4 +67,27 @@ function alert($color, $msg) {
 		$msg . 
 	'</div>  ';
 }
+
+function newPost($title, $time, $author, $topic) {
+	echo '
+                  <div class="card row-hover pos-relative py-3 px-3 mb-3 border-warning border-top-0 border-right-0 border-bottom-0 rounded-0">
+                    <div class="row align-items-center">
+                      <div class="col-md-8 mb-3 mb-sm-0">
+                        <h5>
+                          <a href="#" class="text-primary">' . $title . '</a>
+                        </h5>
+                        <p class="text-sm"><span class="op-6">Posted on</span>
+						' . $time . '<span class="op-6">ago by</span> 
+						' . $author . '</p>
+                        <div class="text-sm op-5">' . $topic . '</div>
+                      </div>
+                      <div class="col-md-4 op-7">
+                        <div class="row text-center op-7">
+                          <div class="col px-1"> <i class="ion-ios-chatboxes-outline icon-1x"></i> <span class="d-block text-sm">122 Replys</span> </div>
+                        </div>
+                      </div>
+                    </div>
+				  </div>';
+                  
+}
 ?>
