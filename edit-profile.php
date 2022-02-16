@@ -89,7 +89,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 							<span class="text-black-50">Joined on <?php echo $date ?></span>
 						</div>	
 					</div>
-					<div class="col-md-5"> 
+					<div class="col-md-5 border-right"> 
 						<div class="p-3 py-5">
 							<div class="d-flex justify-content-between align-items-center mb-3">
 								<h4>Profile Settings</h4>
@@ -123,6 +123,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 								</div>
 						</div>
 					</div>
+
+					<div class="col-md-4">
+						<div class="p-3 py-5">
+							<div class="d-flex justify-content-between align-items-center experience"><h4>Dangerous Stuff</h4></div><br>
+							<div class="col-md-12">By clicking the button below, all information related to your account will be deleted</div> <br>
+							<div class="col-md-12">
+								<label class="labels">To procceed, type in the phrase 'Yes, do as I say!'</label>
+								<input type="text" class="form-control" placeholder="Type in the phrase here (case sensitive)" value="">
+							</div>
+							<div class="row mt-4">
+								<div class="col-md-6">
+									<input type="submit" class="btn btn-primary" value="Delete Account">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</form>
 		<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js'></script>
