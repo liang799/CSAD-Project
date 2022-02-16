@@ -285,10 +285,11 @@
               }).render('#paypal-button-container-P-7YF52428BY641674SMIEMUWI'); // Renders the PayPal button
             </script>
             </div> 
-            
         </section>
+
         <!--Activity-->
-        <div id=activity class="container p-3 my-3 text-center" style="width:1060px">
+        <section class="page-section" id="activity">
+        <div class="container p-3 my-3 text-center" style="width:1060px">
             <h1 class="card-text" >Our Activities!</h1>
             <p class="card-text">Join our wide variety of programs</p>
 
@@ -344,6 +345,7 @@
                 </div>
             </div>
         </div>
+		</section>
         
         <!-- Contact-->
         <section class="page-section" id="contact">
