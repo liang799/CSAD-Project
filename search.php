@@ -1,6 +1,5 @@
 <?php
 	require_once 'include/home.php';
-	require_once 'include/functions.php';
     if (isset($_POST['search'])){
         $search = mysqli_real_escape_string($conn, $_POST['search']);
         $sql = "SELECT * FROM forum JOIN accounts ON forum.userid = accounts.userid JOIN topics ON forum.topic_id = topics.topic_id WHERE title LIKE '%$search%' OR userName LIKE '%$search%' OR content LIKE '%$search%' OR topic LIKE '%$search%'";
@@ -60,7 +59,7 @@
 							. 'window.location.href="home.php";'
 							. ' </script>'; //I want error to occur if no search result
 						} else while($row = mysqli_fetch_assoc($result)){
-						  	newPost($row['title'], $row['userName'], $row['content'], "test");
+						  	newPost($row['title'], $row['timestamp'], $row['userName'], $row['topic']);
 						}    
 					} else {
 						echo '<script> '

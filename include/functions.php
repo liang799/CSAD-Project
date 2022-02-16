@@ -77,7 +77,7 @@ function newPost($title, $time, $author, $topic) {
                           <a href="#" class="text-primary">' . $title . '</a>
                         </h5>
                         <p class="text-sm"><span class="op-6">Posted on</span>
-						' . $time . '<span class="op-6">ago by</span> 
+						' . $time . '<span class="op-6"> by</span> 
 						' . $author . '</p>
                         <div class="text-sm op-5">' . $topic . '</div>
                       </div>
