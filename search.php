@@ -1,28 +1,11 @@
 <?php
 	require_once 'include/home.php';
 	require_once 'include/functions.php';
-    if (isset($_POST[''])){
+    if (isset($_POST['search'])){
         $search = mysqli_real_escape_string($conn, $_POST['search']);
         $sql = "SELECT * FROM forum JOIN accounts ON forum.userid = accounts.userid JOIN topics ON forum.topic_id = topics.topic_id WHERE title LIKE '%$search%' OR userName LIKE '%$search%' OR content LIKE '%$search%' OR topic LIKE '%$search%'";
         $result = mysqli_query($conn, $sql);
         $queryResult = mysqli_num_rows($result);
-        
-        if ($queryResult > 0){
-            if ($search == ""){
-                echo 'No matching results found!'; //I want error to occur if no search result
-            }else while($row = mysqli_fetch_assoc($result)){
-                    echo "<div>
-                          <br>
-                          <h3>".$row['title']."</h3>
-                          <p>".$row['userName']."</p>
-                          <p>".$row['content']."</p>
-                          <br>
-                          </div>";
-            
-                    }    
-        } else {
-            echo 'No matching results found!';
-        }
     }
 ?>
 
@@ -39,7 +22,7 @@
 			<!---- Navbar ---->
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">TREE.com</a>
+                <a class="navbar-brand" href="index.php">TREE.com</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#account" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				  </button>
@@ -65,12 +48,26 @@
                 <div class="col-lg-12 mb-3">
                   <div class="row text-left mb-5">
 					  <div class="col-lg-12 mb-3 mb-sm-0">
-						  Your results for 
+						  Your results for <?php echo $search ?>
 					  </div>
                   </div>
                   <!-- Posts --->
 				  <?php 
-				  newPost("test", "test", "test", "test");
+					if ($queryResult > 0){
+						if ($search == ""){
+							echo '<script> '
+							. 'alert("No matching results found!");'
+							. 'window.location.href="home.php";'
+							. ' </script>'; //I want error to occur if no search result
+						} else while($row = mysqli_fetch_assoc($result)){
+						  	newPost($row['title'], $row['userName'], $row['content'], "test");
+						}    
+					} else {
+						echo '<script> '
+						. 'alert("No matching results found!");'
+						. 'window.location.href="home.php";'
+						. ' </script>'; //I want error to occur if no search result
+					}
 				  ?>
                 </div>
                 </div>

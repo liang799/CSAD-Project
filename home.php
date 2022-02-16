@@ -41,10 +41,10 @@
                 <div class="col-lg-9 mb-3">
                   <div class="row text-left mb-5">
 					  <div class="col-lg-12 mb-3 mb-sm-0">
-    <form class="form-inline"> 
-      <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+						  <form class="form-inline" action="search.php" method="post"> 
+							  <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search">
+							  <button class="btn btn-outline-success" type="submit">Search</button>
+						  </form>
 					  </div>
                   </div>
                   <!-- End of post 1 -->
