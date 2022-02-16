@@ -28,53 +28,53 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			. 'window.location.href="index.php";'
 			. ' </script>'; //I want error to occur if no search result
 		}
-	} else {
-		if (isset($_FILES['file'])) {
-			$targetDir = "uploads/";
-			$fileName = basename($_FILES["file"]["name"]);
-			$targetFilePath = $targetDir . $fileName;
-			$fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+	}
 
-			if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
-				$stmt = $conn->prepare("UPDATE accounts SET userPicture = ? WHERE userName = ?"); 
-				$stmt->bind_param("ss", $fileName, $user);
-				$stmt->execute();
-				$result = $stmt->get_result();
-				$stmt->close();
-			} else {
-				$fileName = "default.png";
-				$stmt = $conn->prepare("UPDATE accounts SET userPicture = ? WHERE userName = ?"); 
-				$stmt->bind_param("ss", $fileName, $user);
-				$stmt->execute();
-				$result = $stmt->get_result();
-				$stmt->close();
-			}
-		}
+	if (isset($_FILES['file'])) {
+		$targetDir = "uploads/";
+		$fileName = basename($_FILES["file"]["name"]);
+		$targetFilePath = $targetDir . $fileName;
+		$fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 
-		if (empty(trim($_POST["message"]))) {
-			$msg_err = "Bio cannot be empty";
-		} else {
-			$bio = $_POST['message'];
-		}
-
-		if (empty(trim($_POST["email"]))) {
-			$email_err = "Email cannot be empty";
-		} else {
-			if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $_POST["email"])) {
-				$email_err = "Not a valid email";
-			} else {
-				$email = $_POST["email"];
-			}
-		}
-
-		if (empty($email_err) && empty($msg_err)) {
-			$stmt = $conn->prepare("UPDATE accounts SET userBio = ?, userEmail = ? WHERE userName = ?"); 
-			$stmt->bind_param("sss", $bio, $email, $user);
+		if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
+			$stmt = $conn->prepare("UPDATE accounts SET userPicture = ? WHERE userName = ?"); 
+			$stmt->bind_param("ss", $fileName, $user);
 			$stmt->execute();
 			$result = $stmt->get_result();
 			$stmt->close();
-			header("location: home.php");
+		} else {
+			$fileName = "default.png";
+			$stmt = $conn->prepare("UPDATE accounts SET userPicture = ? WHERE userName = ?"); 
+			$stmt->bind_param("ss", $fileName, $user);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			$stmt->close();
 		}
+	}
+
+	if (empty(trim($_POST["message"]))) {
+		$msg_err = "Bio cannot be empty";
+	} else {
+		$bio = $_POST['message'];
+	}
+
+	if (empty(trim($_POST["email"]))) {
+		$email_err = "Email cannot be empty";
+	} else {
+		if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $_POST["email"])) {
+			$email_err = "Not a valid email";
+		} else {
+			$email = $_POST["email"];
+		}
+	}
+
+	if (empty($email_err) && empty($msg_err)) {
+		$stmt = $conn->prepare("UPDATE accounts SET userBio = ?, userEmail = ? WHERE userName = ?"); 
+		$stmt->bind_param("sss", $bio, $email, $user);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$stmt->close();
+		header("location: home.php");
 	}
 }
 ?>
