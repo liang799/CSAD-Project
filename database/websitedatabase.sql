@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 16, 2022 at 12:10 PM
+-- Generation Time: Feb 16, 2022 at 01:44 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -36,15 +36,14 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `userPicture` varchar(100) DEFAULT NULL,
   `userCreateDate` date NOT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `accounts`
 --
 
 INSERT INTO `accounts` (`userid`, `userName`, `userPassword`, `userBio`, `userPicture`, `userCreateDate`) VALUES
-(7, 'IpiakYourPigu', '$2y$10$u/RCllzKu6hRn/QmlsiuiuKkuZLXVD5F3aYteXc9k2aOAn8jbPugi', NULL, NULL, '2022-02-14'),
-(9, 'John', '$2y$10$knL3m8j1V/GbVMBmr.0OAOIlX8Yw0yY0HOgY.pm6qspdHF2l09Lz6', NULL, NULL, '2022-02-15');
+(7, 'IpiakYourPigu', '$2y$10$u/RCllzKu6hRn/QmlsiuiuKkuZLXVD5F3aYteXc9k2aOAn8jbPugi', NULL, NULL, '2022-02-14');
 
 -- --------------------------------------------------------
 
@@ -74,18 +73,19 @@ CREATE TABLE IF NOT EXISTS `forum` (
   `title` text NOT NULL,
   `userid` int(11) NOT NULL,
   `content` text NOT NULL,
-  `timestamp` datetime NOT NULL,
+  `timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`post_id`),
   KEY `topic_id` (`topic_id`),
   KEY `userid` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `forum`
 --
 
 INSERT INTO `forum` (`post_id`, `topic_id`, `parent_post_id`, `title`, `userid`, `content`, `timestamp`) VALUES
-(17, 2, 25, 'Jhin', 9, 'aaaa', '2022-02-16 20:06:43');
+(20, 1, 12, 'asdasdasd', 7, 'gggggg', '2022-02-28 20:22:12'),
+(21, 1, 12, 'asdasdasd', 7, 'gggggg', '2022-02-28 20:22:12');
 
 -- --------------------------------------------------------
 
