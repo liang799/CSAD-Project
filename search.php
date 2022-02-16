@@ -59,7 +59,7 @@
 							. 'window.location.href="home.php";'
 							. ' </script>'; //I want error to occur if no search result
 						} else while($row = mysqli_fetch_assoc($result)){
-						  	newResult($row['title'], $row['timestamp'], $row['userName'], $row['topic']);
+						  	newResult($row['post_id'], $row['title'], $row['timestamp'], $row['userName'], $row['topic']);
 						}    
 					} else {
 						echo '<script> '

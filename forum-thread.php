@@ -1,5 +1,15 @@
 <?php
 require_once 'include/home.php';
+
+if (isset($_GET['id'])) {
+	$postid = $_GET['id'];
+} else {
+	header('Location: home.php');
+	exit;
+}
+
+$getPost = mysqli_query($conn, "SELECT * FROM forum JOIN accounts WHERE post_id='$postid'");
+$post = mysqli_fetch_array($getPost);
 ?>
 
 <!DOCTYPE html>
@@ -42,8 +52,8 @@ require_once 'include/home.php';
 					  <div class="col-lg-12 mb-3 mb-sm-0">
 					  </div>
                   </div>
-                  <!-- Posts --->
-					<?php newResult('test', 'asdlf', 'aksdf', 'aksdjf'); ?>
+                  <!-- Parent Post --->
+					<?php newResult($postid, $post['title'], $post['timestamp'], $post['userName'], $post['content']); ?>
 
 					<button class="btn btn-primary has-icon btn-block" type="button"
 							data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
@@ -59,7 +69,7 @@ require_once 'include/home.php';
                   <div class="row text-right mb-5">
 					  <div class="col-lg-9 mb-3 mb-sm-0">
 						  <!--- replies --->
-<?php						  newPost('tea', 'asdf', 'asdf', 'kasdf'); ?>
+<?php						  newPost('kkl', 'tea', 'asdf', 'asdf', 'kasdf'); ?>
 					  </div>
                   </div>
               </div>
