@@ -288,12 +288,12 @@
             
         </section>
         <!--Activity-->
-        <div id=activity class="container p-3 my-3 bg-secondary text-center" style="width:1100px">
-            <h1 class="card-text text-white" id="activities" >Our Activities!</h1>
-            <p class="card-text text-white">Join our wide variety of programs</p>
+        <div id=activity class="container p-3 my-3 text-center" style="width:1060px">
+            <h1 class="card-text" >Our Activities!</h1>
+            <p class="card-text">Join our wide variety of programs</p>
 
             <div class="card-vertical ">
-                <div class="container bg-info  text-center">
+                <div class="container text-center">
                     <div class="card" style="width:1000px">
                         <img class="card-img-top" src="assets/img/portfolio/fullsize/treeplanting.jpg" alt="Card image" style="width:100%">
                         <div class="card-body">
@@ -301,7 +301,7 @@
                             <h4 class="card-title text-black">Tree Planting</h4>
                             <p class="card-text text-black"> Join Us at our tree planting events every month!</p>
                             <p class="card-text text-black"> CALL US AT 90231253</p>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#joinModal">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#joinModal">
                                 Join Activity!
                             </button>
                         </div>
@@ -309,7 +309,7 @@
                 </div>
                 <br>
                 <br>
-                <div class="container bg-info  text-center ">
+                <div class="container text-center ">
                     <div class="card" style="width:1000px">
                         <img class="card-img-top" src="assets/img/portfolio/fullsize/beachcleaning.jpg" alt="Card image" style="width:100%">
                         <div class="card-body">
@@ -317,7 +317,7 @@
                             <h4 class="card-title">Beach Cleanup</h4>
                             <p class="card-text"> We host beach cleanups every weekend!</p>
                             <p class="card-text"> CALL US AT 90438532</p>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#joinModal">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#joinModal">
                                 Join Activity!
                             </button>
                         </div>
@@ -326,7 +326,7 @@
                 <br>
                 <br>
                 <br>
-                <div class="container bg-info  text-center">
+                <div class="container text-center">
                     <div class="card" style="width:1000px">
                         <img class="card-img-top" src="assets/img/portfolio/fullsize/workshop.jpg" alt="Card image" style="width:100%">
                         <div class="card-body">
@@ -336,7 +336,7 @@
                             <p class="card-text"> We frequently hold talks and workshops to educate the public on how to take better care of the environment</p>
                             <p class="card-text"> CALL US AT 68495435</p>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#joinModal">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#joinModal">
                                 Join Activity!
                             </button>
                         </div>
@@ -519,13 +519,13 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Thank you!</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <p class="text-body">You will now receive notifications of any upcoming public events and you may enter registration via the email that comes along with it. Much love fellow nature-lover!</p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                         </div>
                                     </div>
                                 </div>
