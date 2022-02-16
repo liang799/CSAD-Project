@@ -56,7 +56,7 @@ $post = mysqli_fetch_array($getPost);
 					<?php newResult($postid, $post['title'], $post['timestamp'], $post['userName'], $post['content']); ?>
 
 					<button class="btn btn-primary has-icon btn-block" type="button"
-							data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+							data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@<?php echo $post['userName'] ?>">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
 							 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus mr-2">
 						<line x1="12" y1="5" x2="12" y2="19"></line>
@@ -110,19 +110,10 @@ $post = mysqli_fetch_array($getPost);
 	<script>
 		var exampleModal = document.getElementById('exampleModal')
 		exampleModal.addEventListener('show.bs.modal', function (event) {
-		  // Button that triggered the modal
 		  var button = event.relatedTarget
-		  // Extract info from data-bs-* attributes
 		  var recipient = button.getAttribute('data-bs-whatever')
-		  // If necessary, you could initiate an AJAX request here
-		  // and then do the updating in a callback.
-		  //
-		  // Update the modal's content.
 		  var modalTitle = exampleModal.querySelector('.modal-title')
-		  var modalBodyInput = exampleModal.querySelector('.modal-body input')
-
 		  modalTitle.textContent = 'New Reply to ' + recipient
-		  modalBodyInput.value = recipient
 		})
 	</script>
 </html>
