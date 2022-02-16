@@ -3,6 +3,18 @@
 	$sql = "SELECT * FROM `forum` JOIN topics ON forum.topic_id = topics.topic_id JOIN accounts ON forum.userid = accounts.userid";
 	$result = mysqli_query($conn, $sql);
 	$queryResult = mysqli_num_rows($result);
+
+	$tmp = mysqli_query($conn, "SELECT COUNT(topic) FROM topics");
+	$topicCount = mysqli_fetch_assoc($tmp);
+
+	$tmp = mysqli_query($conn, "SELECT COUNT(userid) FROM accounts");
+	$userCount = mysqli_fetch_assoc($tmp);
+
+	$tmp= mysqli_query($conn, "SELECT COUNT(post_id) FROM forum");
+	$postCount= mysqli_fetch_assoc($tmp);
+
+	$tmp= mysqli_query($conn, "SELECT * FROM accounts ORDER BY userid DESC LIMIT 1");
+	$newUser= mysqli_fetch_assoc($tmp);
 ?>
 
 <!DOCTYPE html>
@@ -68,12 +80,12 @@
                       </h4>
                       <hr class="my-0">
                       <div class="row text-center d-flex flex-row op-7 mx-0">
-                        <div class="col-sm-6 flex-ew text-center py-3 border-bottom border-right"> <a class="d-block lead font-weight-bold" href="#">58</a> Topics </div>
-                        <div class="col-sm-6 col flex-ew text-center py-3 border-bottom mx-0"> <a class="d-block lead font-weight-bold" href="#">1.856</a> Posts </div>
+                        <div class="col-sm-6 flex-ew text-center py-3 border-bottom border-right"> <a class="d-block lead font-weight-bold"><?php echo $topicCount['COUNT(topic)'] ?></a> Topics </div>
+                        <div class="col-sm-6 col flex-ew text-center py-3 border-bottom mx-0"> <a class="d-block lead font-weight-bold"><?php echo $postCount['COUNT(post_id)'] ?></a> Posts </div>
                       </div>
                       <div class="row d-flex flex-row op-7">
-                        <div class="col-sm-6 flex-ew text-center py-3 border-right mx-0"> <a class="d-block lead font-weight-bold" href="#">300</a> Members </div>
-                        <div class="col-sm-6 flex-ew text-center py-3 mx-0"> <a class="d-block lead font-weight-bold" href="#">DanielD</a> Newest Member </div>
+                        <div class="col-sm-6 flex-ew text-center py-3 border-right mx-0"> <a class="d-block lead font-weight-bold"><?php echo $userCount['COUNT(userid)'] ?></a> Members </div>
+                        <div class="col-sm-6 flex-ew text-center py-3 mx-0"> <a class="d-block lead font-weight-bold"><?php echo $newUser['userName']?></a> Newest Member </div>
                       </div>
                     </div>
                   </div></div>
