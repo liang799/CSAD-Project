@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 16, 2022 at 08:20 AM
+-- Generation Time: Feb 16, 2022 at 12:10 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -74,10 +74,18 @@ CREATE TABLE IF NOT EXISTS `forum` (
   `title` text NOT NULL,
   `userid` int(11) NOT NULL,
   `content` text NOT NULL,
+  `timestamp` datetime NOT NULL,
   PRIMARY KEY (`post_id`),
   KEY `topic_id` (`topic_id`),
   KEY `userid` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `forum`
+--
+
+INSERT INTO `forum` (`post_id`, `topic_id`, `parent_post_id`, `title`, `userid`, `content`, `timestamp`) VALUES
+(17, 2, 25, 'Jhin', 9, 'aaaa', '2022-02-16 20:06:43');
 
 -- --------------------------------------------------------
 
