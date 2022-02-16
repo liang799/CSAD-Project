@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 16, 2022 at 01:44 PM
+-- Generation Time: Feb 16, 2022 at 03:27 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -34,16 +34,10 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `userPassword` varchar(255) NOT NULL,
   `userBio` varchar(1000) DEFAULT NULL,
   `userPicture` varchar(100) DEFAULT NULL,
+  `userEmail` text NOT NULL,
   `userCreateDate` date NOT NULL,
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `accounts`
---
-
-INSERT INTO `accounts` (`userid`, `userName`, `userPassword`, `userBio`, `userPicture`, `userCreateDate`) VALUES
-(7, 'IpiakYourPigu', '$2y$10$u/RCllzKu6hRn/QmlsiuiuKkuZLXVD5F3aYteXc9k2aOAn8jbPugi', NULL, NULL, '2022-02-14');
 
 -- --------------------------------------------------------
 
@@ -78,14 +72,6 @@ CREATE TABLE IF NOT EXISTS `forum` (
   KEY `topic_id` (`topic_id`),
   KEY `userid` (`userid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `forum`
---
-
-INSERT INTO `forum` (`post_id`, `topic_id`, `parent_post_id`, `title`, `userid`, `content`, `timestamp`) VALUES
-(20, 1, 12, 'asdasdasd', 7, 'gggggg', '2022-02-28 20:22:12'),
-(21, 1, 12, 'asdasdasd', 7, 'gggggg', '2022-02-28 20:22:12');
 
 -- --------------------------------------------------------
 
