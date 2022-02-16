@@ -91,6 +91,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
 	</head>
 	<body oncontextmenu='return false' class='snippet-body'>
+		<!---- Navbar ---->
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" id="mainNav">
+		<div class="container px-4 px-lg-5">
+			<a class="navbar-brand" href="index.php">TREE.com</a>
+		</div>
+		</nav>
+
 		<form method="POST" action="" class="container rounded bg-white mt-5 mb-5" enctype="multipart/form-data">
 			<div class="row">
 					<div class="col-md-3 border-right">
