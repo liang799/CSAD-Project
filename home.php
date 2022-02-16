@@ -3,6 +3,7 @@
 	$sql = "SELECT * FROM `forum` JOIN topics ON forum.topic_id = topics.topic_id JOIN accounts ON forum.userid = accounts.userid";
 	$result = mysqli_query($conn, $sql);
 	$queryResult = mysqli_num_rows($result);
+	$today = date('Y-m-d');
 
 	// Stats stuff
 	$tmp = mysqli_query($conn, "SELECT COUNT(topic) FROM topics");
@@ -20,6 +21,37 @@
 	$sql_temp = "SELECT * FROM topics";
 	$findTopics = mysqli_query($conn, $sql_temp);
 	$foundTopics = mysqli_num_rows($findTopics);
+	$id = $row[0]['userid'];
+	$topicId = -1;
+
+	if($_SERVER["REQUEST_METHOD"] == "POST") {
+		if (empty(trim($_POST["title"])))
+			$title_err = "Title cannot be empty";
+		else
+			$title = $_POST["title"];
+
+		if (empty(trim($_POST["message"])))
+			$msg_err = "Content cannot be empty";
+		else
+			$msg = $_POST["message"];
+
+		if (isset($_POST["topic"])) {
+			$topicId = $_POST['topic'];
+		}
+		if ( empty($msg_err) && empty($title_err) && $topicId > 0) {
+			/* Prepared statement, stage 1: prepare */
+			$stmt = $conn->prepare("INSERT INTO forum (topic_id, parent_post_id, title, userid, content, timestamp) VALUES (?, ?, ?, ?, ?, now())");
+
+			$parent = 0;
+			/* Prepared statement, stage 2: bind and execute */
+			$stmt->bind_param("iisis", $topicId, $parent, $title, $id, $msg);
+			$stmt->execute(); 
+			$stmt->close();
+			setcookie ("modal", "", strtotime('+1 days'), "/CSAD-Project");
+		} else {
+			setcookie ("modal", true, strtotime('+1 days'), "/CSAD-Project");
+		}
+	}
 
 ?>
 
@@ -71,7 +103,7 @@
 				  <?php 
 					if ($queryResult > 0){
 						while($row = mysqli_fetch_assoc($result)){
-						  	newPost($row['title'], $row['timestamp'], $row['userName'], $row['topic']);
+						  	newPost($row['post_id'], $row['title'], $row['timestamp'], $row['userName'], $row['topic']);
 						}    
 					}
 				  ?>
@@ -108,7 +140,7 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				  </div>
 				  <div class="modal-body">
-				  <form action="include/register.php" method="post">
+				  <form action="" method="post">
 					<div class="mb-3 form-group">
 						<label>Title of Post</label>
 						<input type="text" name="title" class="form-control <?php echo (!empty($title_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $title; ?>">
@@ -124,14 +156,14 @@
 
 					<div class="mb-3 form-group">
 						<label>Topic</label>
-						<select class="form-select" aria-label="Default select example">
+						<select name="topic" class="form-select" aria-label="Default select example">
 							<?php
-					if ($foundTopics > 0) {
-						while($row = mysqli_fetch_assoc($findTopics)){
-							echo '<option value="' . $row['topic_id'] . '">' . $row['topic'] . '</option>';
-						}    
-					}
-					?>
+							if ($foundTopics > 0) {
+								while($row = mysqli_fetch_assoc($findTopics)){
+									echo '<option value="' . $row['topic_id'] . '">' . $row['topic'] . '</option>';
+								}    
+							}
+							?>
 						</select>
 					</div>
 					<div class="modal-footer form-group">
@@ -145,4 +177,13 @@
 
 		<?php include 'include/footer.php' ?>
 	</body>
+		<script type="text/javascript">
+			var newModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+			<?php
+				if (isset($_COOKIE['modal'])) {
+					if ($_COOKIE['modal'] == true)
+						echo "newModal.show()";
+				}
+			?>
+		</script>
 </html>
