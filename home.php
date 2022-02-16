@@ -5,16 +5,6 @@
 	$queryResult = mysqli_num_rows($result);
 	$today = date('Y-m-d');
 
-	// Stats stuff
-	$tmp = mysqli_query($conn, "SELECT COUNT(topic) FROM topics");
-	$topicCount = mysqli_fetch_assoc($tmp);
-	$tmp = mysqli_query($conn, "SELECT COUNT(userid) FROM accounts");
-	$userCount = mysqli_fetch_assoc($tmp);
-	$tmp= mysqli_query($conn, "SELECT COUNT(post_id) FROM forum");
-	$postCount= mysqli_fetch_assoc($tmp);
-	$tmp= mysqli_query($conn, "SELECT * FROM accounts ORDER BY userid DESC LIMIT 1");
-	$newUser= mysqli_fetch_assoc($tmp);
-
 	// New post stuff
 	$title = $msg = "";
 	$title_err = $msg_err = "";
@@ -53,6 +43,15 @@
 		}
 	}
 
+	// Stats stuff
+	$tmp = mysqli_query($conn, "SELECT COUNT(topic) FROM topics");
+	$topicCount = mysqli_fetch_assoc($tmp);
+	$tmp = mysqli_query($conn, "SELECT COUNT(userid) FROM accounts");
+	$userCount = mysqli_fetch_assoc($tmp);
+	$tmp= mysqli_query($conn, "SELECT COUNT(post_id) FROM forum");
+	$postCount= mysqli_fetch_assoc($tmp);
+	$tmp= mysqli_query($conn, "SELECT * FROM accounts ORDER BY userid DESC LIMIT 1");
+	$newUser= mysqli_fetch_assoc($tmp);
 ?>
 
 <!DOCTYPE html>
