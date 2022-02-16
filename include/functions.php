@@ -81,11 +81,6 @@ function newResult($title, $time, $author, $topic) {
 			' . $author . '</p>
 			<div class="text-sm op-5">' . $topic . '</div>
 		  </div>
-		  <div class="col-md-4 op-7">
-			<div class="row text-center op-7">
-			  <div class="col px-1"> <i class="ion-ios-chatboxes-outline icon-1x"></i> <span class="d-block text-sm">122 Replys</span> </div>
-			</div>
-		  </div>
 		</div>
 	  </div>';
                   
@@ -102,11 +97,6 @@ function newPost($title, $time, $author, $topic) {
                         <p class="text-sm"><span class="op-6">Posted on</span> ' .
 						$time . '<span class="op-6"> by </span>' . $author .'</p>
                         <div class="text-sm op-5">' . $topic . '</div>
-                      </div>
-                      <div class="col-md-4 op-7">
-                        <div class="row text-center op-7">
-                          <div class="col px-1"> <i class="ion-ios-chatboxes-outline icon-1x"></i> <span class="d-block text-sm">122 Replys</span> </div>
-                        </div>
                       </div>
                     </div>
                   </div>';
