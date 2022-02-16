@@ -8,7 +8,8 @@ $result = selectUser($conn, $user);
 $row = $result->fetch_all(MYSQLI_ASSOC);
 $date = $row[0]['userCreateDate'];
 $bio = "";
-$msg_err = "";
+$msg_err = $email_err = "";
+$email="";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 	if (isset($_FILES['file'])) {
@@ -37,8 +38,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		$msg_err = "Bio cannot be empty";
 	} else {
 		$bio = $_POST['message'];
-		$stmt = $conn->prepare("UPDATE accounts SET userBio = ? WHERE userName = ?"); 
-		$stmt->bind_param("ss", $bio, $user);
+	}
+
+	if (empty(trim($_POST["email"]))) {
+		$email_err = "Email cannot be empty";
+	} else {
+		if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $_POST["email"])) {
+			$email_err = "Not a valid email";
+		} else {
+			$email = $_POST["email"];
+		}
+	}
+
+	if (empty($email_err) && empty($msg_err)) {
+		$stmt = $conn->prepare("UPDATE accounts SET userBio = ?, userEmail = ? WHERE userName = ?"); 
+		$stmt->bind_param("sss", $bio, $email, $user);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$stmt->close();
@@ -87,6 +101,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 									</div>
 								</div>
 								<div class="row mt-3">
+									<div class="col-md-6">
+										<label>Email</label>
+										<input type="text" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email ?>">
+										<span class="invalid-feedback"><?php echo $email_err; ?></span>
+									</div>
+								</div>
+								<div class="row mt-4">
 									<div class="col-md-6">
 										<label>Bio</label>
 										<textarea name="message" type="text" style="height: 6rem" 

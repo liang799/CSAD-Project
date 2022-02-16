@@ -4,8 +4,6 @@ $row = [];
 
 if (empty($_COOKIE['auth']) or empty($_COOKIE['username']) or empty($_COOKIE['password'])) {
 	header("location: index.php");
-} elseif ($_COOKIE['auth'] == false) {
-	header("location: register.php");
 } else {
 	// try getting row containing user
 	$result = selectUser($conn, $_COOKIE['username']);
