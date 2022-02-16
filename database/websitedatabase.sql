@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 15, 2022 at 03:28 PM
+-- Generation Time: Feb 16, 2022 at 08:20 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -70,6 +70,7 @@ DROP TABLE IF EXISTS `forum`;
 CREATE TABLE IF NOT EXISTS `forum` (
   `post_id` int(11) NOT NULL AUTO_INCREMENT,
   `topic_id` int(11) NOT NULL,
+  `parent_post_id` int(11) NOT NULL,
   `title` text NOT NULL,
   `userid` int(11) NOT NULL,
   `content` text NOT NULL,
@@ -77,15 +78,6 @@ CREATE TABLE IF NOT EXISTS `forum` (
   KEY `topic_id` (`topic_id`),
   KEY `userid` (`userid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `forum`
---
-
-INSERT INTO `forum` (`post_id`, `topic_id`, `title`, `userid`, `content`) VALUES
-(12, 1, 'Hi i have retard', 7, 'aaa'),
-(13, 2, '1111 Ranson 2222', 9, 'ttt'),
-(14, 2, 'aaaa', 9, 'qj');
 
 -- --------------------------------------------------------
 
