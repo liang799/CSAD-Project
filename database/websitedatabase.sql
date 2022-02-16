@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 16, 2022 at 03:27 PM
+-- Generation Time: Feb 16, 2022 at 03:57 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `userPassword` varchar(255) NOT NULL,
   `userBio` varchar(1000) DEFAULT NULL,
   `userPicture` varchar(100) DEFAULT NULL,
-  `userEmail` text NOT NULL,
+  `userEmail` text,
   `userCreateDate` date NOT NULL,
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
