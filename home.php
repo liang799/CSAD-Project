@@ -4,17 +4,23 @@
 	$result = mysqli_query($conn, $sql);
 	$queryResult = mysqli_num_rows($result);
 
+	// Stats stuff
 	$tmp = mysqli_query($conn, "SELECT COUNT(topic) FROM topics");
 	$topicCount = mysqli_fetch_assoc($tmp);
-
 	$tmp = mysqli_query($conn, "SELECT COUNT(userid) FROM accounts");
 	$userCount = mysqli_fetch_assoc($tmp);
-
 	$tmp= mysqli_query($conn, "SELECT COUNT(post_id) FROM forum");
 	$postCount= mysqli_fetch_assoc($tmp);
-
 	$tmp= mysqli_query($conn, "SELECT * FROM accounts ORDER BY userid DESC LIMIT 1");
 	$newUser= mysqli_fetch_assoc($tmp);
+
+	// New post stuff
+	$title = $msg = "";
+	$title_err = $msg_err = "";
+	$sql_temp = "SELECT * FROM topics";
+	$findTopics = mysqli_query($conn, $sql_temp);
+	$foundTopics = mysqli_num_rows($findTopics);
+
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +79,7 @@
                 <!-- Sidebar content -->
                 <div class="col-lg-3 mb-4 mb-lg-0 px-lg-0 mt-lg-0">
                   <div style="visibility: hidden; display: none; width: 285px; height: 801px; margin: 0px; float: none; position: static; inset: 85px auto auto;"></div><div data-settings="{&quot;parent&quot;:&quot;#content&quot;,&quot;mind&quot;:&quot;#header&quot;,&quot;top&quot;:10,&quot;breakpoint&quot;:992}" data-toggle="sticky" class="sticky" style="top: 85px;"><div class="sticky-inner">
-                    <a class="btn btn-lg btn-block btn-success rounded-0 py-4 mb-3 bg-op-6 roboto-bold" href="#">New Post</a>
+                    <a class="btn btn-lg btn-block btn-success rounded-0 py-4 mb-3 bg-op-6 roboto-bold" href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">New Post</a>
                     <div class="bg-white mb-3">
                       <h4 class="px-3 py-4 op-5 m-0 roboto-bold">
                         Stats
@@ -92,6 +98,51 @@
                 </div>
               </div>
             </div>
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">New Post</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				  </div>
+				  <div class="modal-body">
+				  <form action="include/register.php" method="post">
+					<div class="mb-3 form-group">
+						<label>Title of Post</label>
+						<input type="text" name="title" class="form-control <?php echo (!empty($title_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $title; ?>">
+						<span class="invalid-feedback"><?php echo $title_err; ?></span>
+					</div>
+					<div class="mb-3 form-group">
+						<label for="message">Message</label>
+						<textarea name="message" type="text" style="height: 8rem" 
+						class="form-control <?php echo (!empty($msg_err)) ? 'is-invalid' : ''; ?>"
+						 ><?php echo $msg; ?></textarea>
+						<div class="invalid-feedback" ><?php echo $msg_err ?></div>
+					</div>
+
+					<div class="mb-3 form-group">
+						<label>Topic</label>
+						<select class="form-select" aria-label="Default select example">
+							<?php
+					if ($foundTopics > 0) {
+						while($row = mysqli_fetch_assoc($findTopics)){
+							echo '<option value="' . $row['topic_id'] . '">' . $row['topic'] . '</option>';
+						}    
+					}
+					?>
+						</select>
+					</div>
+					<div class="modal-footer form-group">
+						<input type="submit" class="btn btn-primary" value="Submit">
+					</div>
+				  </form>
+				  </div>
+				</div>
+			  </div>
+			</div>
+
 		<?php include 'include/footer.php' ?>
 	</body>
 </html>

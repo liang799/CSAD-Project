@@ -68,13 +68,13 @@ function alert($color, $msg) {
 	'</div>  ';
 }
 
-function newResult($title, $time, $author, $topic) {
+function newResult($postid, $title, $time, $author, $topic) {
 	echo '
 	  <div class="card row-hover pos-relative py-3 px-3 mb-3 border-warning border-top-0 border-right-0 border-bottom-0 rounded-0">
 		<div class="row align-items-center">
 		  <div class="col-md-8 mb-3 mb-sm-0">
 			<h5>
-			  <a href="#" class="text-primary">' . $title . '</a>
+			  <a href="forum-thread.php?id='. $postid .'" class="text-primary">' . $title . '</a>
 			</h5>
 			<p class="text-sm"><span class="op-6">Posted on</span>
 			' . $time . '<span class="op-6"> by</span> 
@@ -86,13 +86,13 @@ function newResult($title, $time, $author, $topic) {
                   
 }
 
-function newPost($title, $time, $author, $topic) {
+function newPost($postid, $title, $time, $author, $topic) {
 	echo '
                   <div class="card row-hover pos-relative py-3 px-3 mb-3 border-warning border-top-0 border-right-0 border-bottom-0 rounded-0">
                     <div class="row align-items-center">
                       <div class="col-md-8 mb-3 mb-sm-0">
                         <h5>
-							  <a href="#" class="text-primary">' . $title . '</a>
+							  <a href="forum-thread.php?id=' . $postid . '" class="text-primary">' . $title . '</a>
                         </h5>
                         <p class="text-sm"><span class="op-6">Posted on</span> ' .
 						$time . '<span class="op-6"> by </span>' . $author .'</p>
