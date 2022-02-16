@@ -3,21 +3,16 @@
 ?>
 
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
 	<head>
 		<meta charset="UTF-8">
-                <?php include "include/bootstrap.php" //bootstrap stylesheets and scripts ?>
+		<?php include "include/bootstrap.php" //bootstrap stylesheets and scripts ?>
 		<title>Home</title>
 		<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 	</head>
 	<body style="background-color: green">
-
+			<!---- Navbar ---->
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#page-top">TREE.com</a>
@@ -31,8 +26,8 @@ and open the template in the editor.
 						  <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						  <a class="dropdown-item" href="#">Edit Profile</a>
-						  <a class="dropdown-item" href="#">Log Out</a>
+							<a class="dropdown-item" href="edit-profile.php">Edit Profile</a>
+							<a class="dropdown-item" href="include/logout.php">Log Out</a>
 						</div>
 					  </li>   
                     </ul>                    
@@ -472,40 +467,6 @@ and open the template in the editor.
                   <div style="visibility: hidden; display: none; width: 285px; height: 801px; margin: 0px; float: none; position: static; inset: 85px auto auto;"></div><div data-settings="{&quot;parent&quot;:&quot;#content&quot;,&quot;mind&quot;:&quot;#header&quot;,&quot;top&quot;:10,&quot;breakpoint&quot;:992}" data-toggle="sticky" class="sticky" style="top: 85px;"><div class="sticky-inner">
                     <a class="btn btn-lg btn-block btn-success rounded-0 py-4 mb-3 bg-op-6 roboto-bold" href="#">Ask Question</a>
                     <div class="bg-white mb-3">
-                      <h4 class="px-3 py-4 op-5 m-0">
-                        Active Topics
-                      </h4>
-                      <hr class="m-0">
-                      <div class="pos-relative px-3 py-3">
-                        <h6 class="text-primary text-sm">
-                          <a href="#" class="text-primary">Why Bootstrap 4 is so awesome? </a>
-                        </h6>
-                        <p class="mb-0 text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">39 minutes</a> <span class="op-6">ago by</span> <a class="text-black" href="#">AppStrapMaster</a></p>
-                      </div>
-                      <hr class="m-0">
-                      <div class="pos-relative px-3 py-3">
-                        <h6 class="text-primary text-sm">
-                          <a href="#" class="text-primary">Custom shortcut or command to launch command in terminal? </a>
-                        </h6>
-                        <p class="mb-0 text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">58 minutes</a> <span class="op-6">ago by</span> <a class="text-black" href="#">DanielD</a></p>
-                      </div>
-                      <hr class="m-0">
-                      <div class="pos-relative px-3 py-3">
-                        <h6 class="text-primary text-sm">
-                          <a href="#" class="text-primary">HELP! My Windows XP machine is down </a>
-                        </h6>
-                        <p class="mb-0 text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">48 minutes</a> <span class="op-6">ago by</span> <a class="text-black" href="#">DanielD</a></p>
-                      </div>
-                      <hr class="m-0">
-                      <div class="pos-relative px-3 py-3">
-                        <h6 class="text-primary text-sm">
-                          <a href="#" class="text-primary">HELP! My Windows XP machine is down </a>
-                        </h6>
-                        <p class="mb-0 text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">38 minutes</a> <span class="op-6">ago by</span> <a class="text-black" href="#">DanielD</a></p>
-                      </div>
-                      <hr class="m-0">
-                    </div>
-                    <div class="bg-white text-sm">
                       <h4 class="px-3 py-4 op-5 m-0 roboto-bold">
                         Stats
                       </h4>
