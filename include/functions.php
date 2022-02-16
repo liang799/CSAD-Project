@@ -97,10 +97,11 @@ function newPost($title, $time, $author, $topic) {
                     <div class="row align-items-center">
                       <div class="col-md-8 mb-3 mb-sm-0">
                         <h5>
-                          <a href="#" class="text-primary">Drupal 8 quick starter guide</a>
+							  <a href="#" class="text-primary">' . $title . '</a>
                         </h5>
-                        <p class="text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">20 minutes</a> <span class="op-6">ago by</span> <a class="text-black" href="#">KenyeW</a></p>
-                        <div class="text-sm op-5"> <a class="text-black mr-2" href="#">#C++</a> <a class="text-black mr-2" href="#">#AppStrap Theme</a> <a class="text-black mr-2" href="#">#Wordpress</a> </div>
+                        <p class="text-sm"><span class="op-6">Posted on</span> ' .
+						$time . '<span class="op-6"> by </span>' . $author .'</p>
+                        <div class="text-sm op-5">' . $topic . '</div>
                       </div>
                       <div class="col-md-4 op-7">
                         <div class="row text-center op-7">
