@@ -53,6 +53,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		setcookie ("password", $encrypted, strtotime('+30 days'), "/CSAD-Project");
 		setcookie ("auth", $auth, strtotime('+30 days'), "/CSAD-Project");
 		setcookie ("modal_show", "", strtotime('+1 days'), "/CSAD-Project");
+		setcookie ("err_pass", "", strtotime('+1 days'), "/CSAD-Project");
+		setcookie ("err_user", "", strtotime('+1 days'), "/CSAD-Project");
 		header("location: ../home.php");
 		die();
 	} else {
