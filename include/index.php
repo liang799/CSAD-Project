@@ -80,5 +80,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$stmt->close();
 		$contact_success = true;
 	}
+	$conn->close();
 }
 ?>

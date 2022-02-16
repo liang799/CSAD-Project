@@ -24,6 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 		$result = $stmt->get_result();
 		$stmt->close();
 	}
+	$conn->close();
 	header("location: ../index.php");
 	die();
 }
