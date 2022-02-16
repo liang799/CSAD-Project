@@ -17,6 +17,7 @@ and open the template in the editor.
 		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 	</head>
 	<body style="background-color: green">
+
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#page-top">TREE.com</a>
@@ -38,8 +39,9 @@ and open the template in the editor.
                 </div>
             </div>
             </nav>
+
         <div class="container rounded bg-white">
-              <div class="row" style="margin-top:100px">
+              <div class="row" style="margin-top:100px; margin-bottom: 100px; padding: 35px">
                 <!-- Main content -->
                 <div class="col-lg-9 mb-3">
                   <div class="row text-left mb-5">
@@ -521,5 +523,6 @@ and open the template in the editor.
                 </div>
               </div>
             </div>
+		<?php include 'include/footer.php' ?>
 	</body>
 </html>
