@@ -48,7 +48,7 @@
                 <div class="col-lg-12 mb-3">
                   <div class="row text-left mb-5">
 					  <div class="col-lg-12 mb-3 mb-sm-0">
-						  Your results for <?php echo $search ?>
+						  Your results for "<?php echo $search ?>"
 					  </div>
                   </div>
                   <!-- Posts --->
