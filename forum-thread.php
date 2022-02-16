@@ -7,9 +7,31 @@ if (isset($_GET['id'])) {
 	header('Location: home.php');
 	exit;
 }
-
 $getPost = mysqli_query($conn, "SELECT * FROM forum JOIN accounts WHERE post_id='$postid'");
 $post = mysqli_fetch_array($getPost);
+$msg = "";
+$msg_err = "";
+$title = "reply";
+
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+	if (empty(trim($_POST["message"]))) {
+		$msg_err = "Reply cannot be empty";
+		setcookie ("modal", true, strtotime('+1 days'), "/CSAD-Project");
+	} else {
+		$msg = $_POST["message"];
+		$id = $post['userid'];
+		$topicId = $post['topic_id'];
+
+		/* Prepared statement, stage 1: prepare */
+		$stmt = $conn->prepare("INSERT INTO forum (topic_id, parent_post_id, title, userid, content, timestamp) VALUES (?, ?, ?, ?, ?, now())");
+
+		/* Prepared statement, stage 2: bind and execute */
+		$stmt->bind_param("iisis", $topicId, $postid, $title, $id, $msg);
+		$stmt->execute(); 
+		$stmt->close();
+		setcookie ("modal", "", strtotime('+1 days'), "/CSAD-Project");
+	}
+}
 ?>
 
 <!DOCTYPE html>
@@ -77,31 +99,32 @@ $post = mysqli_fetch_array($getPost);
 		</div>
 
 
-
-
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Reply: </label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
-    </div>
-  </div>
-</div>
+		<!---- Modal ---->
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">New message</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			  </div>
+			<form action="" method="post">
+			  <div class="modal-body">
+					<div class="mb-3 form-group">
+						<label for="message">Reply: </label>
+						<textarea name="message" type="text" style="height: 8rem" 
+						class="form-control <?php echo (!empty($msg_err)) ? 'is-invalid' : ''; ?>"
+						 ><?php echo $msg; ?></textarea>
+						<div class="invalid-feedback" ><?php echo $msg_err ?></div>
+					</div>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				<input type="submit" class="btn btn-primary" value="Send Message">
+			  </div>
+			</form>
+			</div>
+		  </div>
+		</div>
 
 
 		<?php include 'include/footer.php' ?>
@@ -115,5 +138,11 @@ $post = mysqli_fetch_array($getPost);
 		  var modalTitle = exampleModal.querySelector('.modal-title')
 		  modalTitle.textContent = 'New Reply to ' + recipient
 		})
+		<?php
+		if (isset($_COOKIE['modal'])) {
+			if ($_COOKIE['modal'] == true)
+				echo "exampleModal.show()";
+		}
+		?>
 	</script>
 </html>
