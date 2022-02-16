@@ -12,51 +12,69 @@ $msg_err = $email_err = "";
 $email="";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-	if (isset($_FILES['file'])) {
-		$targetDir = "uploads/";
-		$fileName = basename($_FILES["file"]["name"]);
-		$targetFilePath = $targetDir . $fileName;
-		$fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+	if (isset($_POST['delete'])) {
+		if ($_POST['delete'] === "Yes, do as I say!") {
+			$stmt = $conn->prepare("DELETE forum FROM forum JOIN accounts ON forum.userid = accounts.userid WHERE userName = ?");
+			$stmt->bind_param("s", $user);
+			$stmt->execute();
+			$stmt->close();
+	
+			$stmt = $conn->prepare("DELETE FROM accounts WHERE accounts.userName = ?"); 
+			$stmt->bind_param("s", $user);
+			$stmt->execute();
+			$stmt->close();
+			echo '<script> '
+			. 'alert("User has been deleted");'
+			. 'window.location.href="index.php";'
+			. ' </script>'; //I want error to occur if no search result
+		}
+	} else {
+		if (isset($_FILES['file'])) {
+			$targetDir = "uploads/";
+			$fileName = basename($_FILES["file"]["name"]);
+			$targetFilePath = $targetDir . $fileName;
+			$fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 
-        if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
-			$stmt = $conn->prepare("UPDATE accounts SET userPicture = ? WHERE userName = ?"); 
-			$stmt->bind_param("ss", $fileName, $user);
+			if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
+				$stmt = $conn->prepare("UPDATE accounts SET userPicture = ? WHERE userName = ?"); 
+				$stmt->bind_param("ss", $fileName, $user);
+				$stmt->execute();
+				$result = $stmt->get_result();
+				$stmt->close();
+			} else {
+				$fileName = "default.png";
+				$stmt = $conn->prepare("UPDATE accounts SET userPicture = ? WHERE userName = ?"); 
+				$stmt->bind_param("ss", $fileName, $user);
+				$stmt->execute();
+				$result = $stmt->get_result();
+				$stmt->close();
+			}
+		}
+
+		if (empty(trim($_POST["message"]))) {
+			$msg_err = "Bio cannot be empty";
+		} else {
+			$bio = $_POST['message'];
+		}
+
+		if (empty(trim($_POST["email"]))) {
+			$email_err = "Email cannot be empty";
+		} else {
+			if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $_POST["email"])) {
+				$email_err = "Not a valid email";
+			} else {
+				$email = $_POST["email"];
+			}
+		}
+
+		if (empty($email_err) && empty($msg_err)) {
+			$stmt = $conn->prepare("UPDATE accounts SET userBio = ?, userEmail = ? WHERE userName = ?"); 
+			$stmt->bind_param("sss", $bio, $email, $user);
 			$stmt->execute();
 			$result = $stmt->get_result();
 			$stmt->close();
-		} else {
-			$fileName = "default.png";
-			$stmt = $conn->prepare("UPDATE accounts SET userPicture = ? WHERE userName = ?"); 
-			$stmt->bind_param("ss", $fileName, $user);
-			$stmt->execute();
-			$result = $stmt->get_result();
-			$stmt->close();
+			header("location: home.php");
 		}
-	}
-
-	if (empty(trim($_POST["message"]))) {
-		$msg_err = "Bio cannot be empty";
-	} else {
-		$bio = $_POST['message'];
-	}
-
-	if (empty(trim($_POST["email"]))) {
-		$email_err = "Email cannot be empty";
-	} else {
-		if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $_POST["email"])) {
-			$email_err = "Not a valid email";
-		} else {
-			$email = $_POST["email"];
-		}
-	}
-
-	if (empty($email_err) && empty($msg_err)) {
-		$stmt = $conn->prepare("UPDATE accounts SET userBio = ?, userEmail = ? WHERE userName = ?"); 
-		$stmt->bind_param("sss", $bio, $email, $user);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$stmt->close();
-		header("location: home.php");
 	}
 }
 ?>
@@ -130,7 +148,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 							<div class="col-md-12">By clicking the button below, all information related to your account will be deleted</div> <br>
 							<div class="col-md-12">
 								<label class="labels">To procceed, type in the phrase 'Yes, do as I say!'</label>
-								<input type="text" class="form-control" placeholder="Type in the phrase here (case sensitive)" value="">
+								<input type="text" class="form-control" placeholder="Type in the phrase here (case sensitive)" name="delete" value="">
 							</div>
 							<div class="row mt-4">
 								<div class="col-md-6">
