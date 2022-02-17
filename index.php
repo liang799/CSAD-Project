@@ -6,7 +6,28 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <?php include "include/bootstrap.php" //bootstrap stylesheets and scripts ?>
+        <!--?php include "include/bootstrap.php" //bootstrap stylesheets and scripts ?-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>TREE.com</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap Icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- SimpleLightbox plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- SimpleLightbox plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
         <style>
 			.bg-dark {
 				background-color: black !important;
@@ -101,6 +122,22 @@
                         a.small:hover{
                             color:#f4623a;
                         }
+                        #portfolio .container-fluid .portfolio-box .portfolio-box-caption, #portfolio .container-sm .portfolio-box .portfolio-box-caption, #portfolio .container-md .portfolio-box .portfolio-box-caption, #portfolio .container-lg .portfolio-box .portfolio-box-caption, #portfolio .container-xl .portfolio-box .portfolio-box-caption, #portfolio .container-xxl .portfolio-box .portfolio-box-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  opacity: 0;
+  color: #fff;
+  background: rgba(244, 98, 58, 0.9);
+  transition: opacity 0.25s ease;
+  text-align: center;
+}
  
 			<?php 
 				if (!$contact_success) {
@@ -239,8 +276,8 @@
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/jhin.jpg" title="Joseph">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/jhin.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/joseph.jpg" title="Joseph<br>CSS CODER<br>p2032120">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/joseph.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">P2032120</div>
                                 <div class="project-name">Joseph Loh</div>
@@ -249,8 +286,8 @@
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/hitman.jpg" title="Tian Pok">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/hitman.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/tianpok.jpeg" title="Tian Pok<br>Server Side Savant<br>p2032203">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/tianpok.jpeg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">P2032203</div>
                                 <div class="project-name">Neoh Tian Pok</div>
@@ -259,8 +296,8 @@
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/3.jpg" title="Boyan">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/3.jpg" alt="..." />
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/boyan.jpeg" title="Boyan<br>Database Developer<br>p2019590">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/boyan.jpeg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">P2019590</div>
                                 <div class="project-name">Shen BoYan</div>
