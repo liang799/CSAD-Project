@@ -141,23 +141,17 @@
         <header class="masthead">
             <div class="container px-4 px-lg-5">
         <br>
-        <marquee><h1><!--?php
-        $server = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "websitedatabase"; 
+        <marquee><h1><?php
         
-        $conn = mysqli_connect($server,$username,$password,$dbname);
-        $stmt = $conn->prepare("SELECT * FROM websitedatabase.accounts WHERE userName=?"); 
-
-	/* Prepared statement, stage 2: bind and execute */
-	$stmt->bind_param("s", $var);
-	$stmt->execute();
-	$result = $stmt->get_result();
-	$stmt->close();
-         
-        ?-->
-            Ranson is dead</h1></marquee>
+        $sql="SELECT * FROM announcements ORDER BY id DESC LIMIT 1";
+        $result = mysqli_query($conn, $sql);
+	$queryResult = mysqli_fetch_assoc($result);
+        
+        if (isset($queryResult)) {
+         echo $queryResult['content'];
+        }
+        
+        ?></h1></marquee>
         </div>
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
