@@ -139,6 +139,26 @@
         </nav>
         <!-- Masthead-->
         <header class="masthead">
+            <div class="container px-4 px-lg-5">
+        <br>
+        <marquee><h1><!--?php
+        $server = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "websitedatabase"; 
+        
+        $conn = mysqli_connect($server,$username,$password,$dbname);
+        $stmt = $conn->prepare("SELECT * FROM websitedatabase.accounts WHERE userName=?"); 
+
+	/* Prepared statement, stage 2: bind and execute */
+	$stmt->bind_param("s", $var);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$stmt->close();
+         
+        ?-->
+            Ranson is dead</h1></marquee>
+        </div>
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
@@ -524,7 +544,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <p class="text-body">You will now receive notifications of any upcoming public events and you may enter registration via the email that comes along with it. Much love fellow nature-lover!</p>
+                                            <p class="text-body">Thank you for expressing your interests. We will email more details to you shortly!</p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
