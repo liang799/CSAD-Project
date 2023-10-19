@@ -225,10 +225,16 @@
                     </div> 
                     <div class="row gx-4 gx-lg-5 justify-content-center">
                         <div class="col-lg-6">
-                            <iframe width="600" height="450" src="https://www.youtube.com/embed/BN9qnvRpTos"></iframe>
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/BN9qnvRpTos"></iframe>
                         </div>
                         <div class="col-lg-6">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.29856015750988!2d103.77903855730713!3d1.3090930241409915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf15437f759d83d9d!2zMcKwMTgnMzMuMSJOIDEwM8KwNDYnNDQuNSJF!5e0!3m2!1sen!2ssg!4v1643702434856!5m2!1sen!2ssg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.29856015750988!2d103.77903855730713!3d1.3090930241409915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf15437f759d83d9d!2zMcKwMTgnMzMuMSJOIDEwM8KwNDYnNDQuNSJF!5e0!3m2!1sen!2ssg!4v1643702434856!5m2!1sen!2ssg" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy"></iframe>
                         </div>
                     </div>
                 </div>
